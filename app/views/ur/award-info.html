@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Award info
+{% endblock %}
+
+{% block content %}
+
+<style>
+ a, button, input[type="submit"] {
+  pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        <li><a href="/">Your account</a></li>
+        <li><a href="/saved-searches">Your saved searches</a></li>
+        <li><a href="/ur/search-summary" class="can-click">Buying some cloud software</a></li>
+        <li>Which service won the contract?</li>
+    </ol>
+  </nav>
+</div>
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge" style="margin-bottom:30px">
+        Which service won the contract?
+      </h1>
+          </div>
+  </div>
+  <div class="grid-row direct-award-project-overview-page">
+    <div class="column-two-thirds">
+      <form action="/ur/award-details" method="get">
+        <div class="form-group">
+          <fieldset>
+            <div class="multiple-choice">
+              <input id="radio-1" type="radio" name="awardwinner" value="Drupal 8 Upgrade">
+              <label for="radio-1">
+                Drupal 8 Upgrade
+                <span class="form-hint">CTI Digital</span>
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-2" type="radio" name="awardwinner" value="Microsoft Office 365">
+              <label for="radio-2">
+                Microsoft Office 365
+                <span class="form-hint">Glemnet Ltd</span>
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-3" type="radio" name="awardwinner" value="Microsoft Office 365">
+              <label for="radio-3">
+                Drupal Consultancy Service
+                <span class="form-hint">CTI Digital</span>
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-4" type="radio" name="awardwinner" value="KARMA™ - Managed Services">
+              <label for="radio-4">
+                Gaia Moodle Platform
+                <span class="form-hint">Gaia Technologies Plc</span>
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-5" type="radio" name="awardwinner" value="ONI Nimbus UC - Unified Communications as a Service (UCaaS)">
+              <label for="radio-5">
+                Managed Hosting Service - Content Development & Deployment
+                <span class="form-hint">Larmer Brown Limited</span>
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-6" type="radio" name="awardwinner" value="Fordway Cloud Backup and Recovery Service">
+              <label for="radio-6">
+                Microsoft Dynamics 365 / CRM Implementation
+                <span class="form-hint">Esuasive</span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <input type="submit" value="Save and continue" class="button button--save can-click"></a>
+        <p class="return-to-overview">
+          <a href="/ur?step=4" class="can-click">Previous page</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

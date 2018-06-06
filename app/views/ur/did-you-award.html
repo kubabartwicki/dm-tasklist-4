@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Did you award the contract?
+{% endblock %}
+
+{% block content %}
+
+<style>
+ a, button, input[type="submit"] {
+  pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        <li><a href="/">Your account</a></li>
+        <li><a href="/saved-searches">Your saved searches</a></li>
+        <li><a href="/ur/search-summary" class="can-click">Buying some cloud software</a></li>
+        <li>Did you award a contract?</li>
+    </ol>
+  </nav>
+</div>
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+        Did you award a contract for 'Buying some cloud software'?
+      </h1>
+    </div>
+  </div>
+  <div class="grid-row direct-award-project-overview-page">
+    <div class="column-two-thirds">
+      <form method="post">
+        <div class="form-group">
+          <fieldset>
+            <div class="multiple-choice">
+              <input id="radio-1" type="radio" name="radiogroup" value="yes">
+              <label for="radio-1">
+                Yes
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-2" type="radio" name="radiogroup" value="no">
+              <label for="radio-2">
+                No
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-3" type="radio" name="radiogroup" value="ongoing">
+              <label for="radio-3">
+                We are still assessing services
+              </label>
+            </div>
+          </fieldset>
+        </div>
+        <input type="submit" class="button can-click" value="Save and continue">
+      </form>
+
+      <p class="return-to-overview">
+        <a href="/ur?step=4">Return to your task list</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

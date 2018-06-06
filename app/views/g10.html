@@ -1,0 +1,389 @@
+{% extends "layout.html" %}
+{% set action = '/ur/save-search' %}
+{% set logged_in = true %}
+{% block page_title %}
+  Search – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" media="screen" href="/public/stylesheets/dm-styles.css" />
+<style>
+ a, button, input[type="submit"] {
+ 	pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/" class="can-click">Digital Marketplace</a></li>
+        <li><a href="/start-1">Your account</a></li>
+        <li><a href="#">Your saved searches</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div id="wrapper">
+    <main id="content" role="main">
+        <div class="grid-row">
+          <div class="column-one-whole">
+          <div class="banner-temporary-message-without-action">
+            
+              <h2>
+                Cloud Supplier Limited stopped providing this service on Thursday 31 December 2015.
+
+              </h2>
+            
+            
+              <p class="banner-message">
+                Any existing contracts for this service remain valid. <a href="#">Here’s a blog post about it</a>, which you should definitely read if you are at all perturbed by this shouty blue box.
+              </p>
+            
+            
+            
+          </div>
+          
+        </div>
+      </div>
+              
+          <div class="grid-row">
+            <div class="column-two-thirds">
+              
+                <header class="page-heading page-heading-without-breadcrumb"><h1>
+            playing
+          </h1>
+        </header>
+              
+            </div>
+          </div>
+          <div class="grid-row direct-award-project-overview-page">
+            <div class="column-two-thirds">
+              
+                
+                   <ol class="instruction-list" >
+            
+              <li class="instruction-list-item
+                
+                  divider
+                ">
+                
+                  
+                    <h2 class="instruction-list-item-body">Write a list of your requirements</h2>
+                  
+                
+                
+                
+                
+                
+                
+                  
+                    
+                        <p class="instruction-list-item-top">Work with buyers, someone who will use the service and technical experts to prepare a list of ‘must-haves’ and ‘wants’. These should inform your search category, keywords and filters.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-top">You can also <a href="https://www.gov.uk/guidance/talking-to-suppliers-before-you-buy-digital-marketplace-services" target="_blank" rel="external noopener noreferrer" 
+                        data-analytics="trackEvent"
+                        data-analytics-category="Direct Award"
+                        data-analytics-action="External Link"
+                        >talk to suppliers before you start</a> to help you refine your requirements.</p>
+                    
+                  
+                
+                
+                
+              </li>
+            
+              <li class="instruction-list-item
+                
+                  divider
+                ">
+                
+                  
+                    <h2 class="instruction-list-item-body">Save your search</h2>
+                  
+                
+                
+                
+                
+                
+                
+                  
+                    
+                        <p class="instruction-list-item-top search-summary"><span class="search-summary-count">95</span> results found containing <em>drupal</em> in <em>All categories</em> where the supplier is <em>not a reseller</em> and where user support is available through <em>web chat</em></p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-top"><a href="/g-cloud/search?q=drupal&amp;resellingType=not_reseller&amp;webChatSupport=yes">View results</a></p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-box complete">Search saved on Tuesday 5 June 2018 at 10:36am BST</p>
+                    
+                  
+                
+                
+                
+              </li>
+            
+              <li class="instruction-list-item
+                
+                  divider
+                ">
+                
+                  
+                    <h2 class="instruction-list-item-body">Refine your search</h2>
+                  
+                
+                
+                
+                
+                
+                
+                  
+                    
+                        <p class="instruction-list-item-top">If you need to, add filters to refine the results of your search. Save your search again to record any changes you make.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-top"><a href="/g-cloud/search?q=drupal&amp;resellingType=not_reseller&amp;webChatSupport=yes">Edit search</a></p>
+                    
+                  
+                
+                
+                
+              </li>
+            
+              <li class="instruction-list-item
+                
+                  divider
+                ">
+                
+                  
+                    <h2 class="instruction-list-item-body">End your search</h2>
+                  
+                
+                
+                
+                
+                
+                
+                  
+                    
+                        <p class="instruction-list-item-top">End your search to create a spreadsheet of the services you’ve found. You should only do this when you have finished searching for services.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-top">You cannot edit your search once it has ended.</p>
+                    
+                  
+                    
+                        <a class="instruction-list-item-action button-save" href="/buyers/direct-award/g-cloud/projects/335091557966895/end-search" 
+                        data-analytics="trackEvent"  
+                        data-analytics-category="Direct Award"  
+                        data-analytics-action="Internal Link"  
+                        
+                        >End search</a>
+                    
+                  
+                
+                
+                
+              </li>
+            
+              <li class="instruction-list-item
+                
+                  divider
+                ">
+                
+                  
+                    <h2 class="instruction-list-item-body">Download your search results</h2>
+                  
+                
+                
+                
+                
+                
+                
+                  
+                    
+                        <p class="instruction-list-item-top">Download a spreadsheet of your search results.<br>You can use the spreadsheet to help you review or <a href="https://www.gov.uk/guidance/g-cloud-buyers-guide#review-and-compare-services" target="_blank" rel="external noopener noreferrer"
+                        data-analytics="trackEvent"
+                        data-analytics-category="Direct Award"
+                        data-analytics-action="External Link"
+                        >compare services</a>.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-box inactive">Can&#39;t start yet</p>
+                    
+                  
+                    
+                  
+                
+                
+                
+              </li>
+            
+              <li class="instruction-list-item
+                
+                  divider
+                ">
+                
+                  
+                    <h2 class="instruction-list-item-body">Award a contract</h2>
+                  
+                
+                
+                
+                
+                
+                
+                  
+                    
+                        <p class="instruction-list-item-top"><a href="https://www.gov.uk/government/publications/g-cloud-9-call-off-contract" target="_blank" rel="external noopener noreferrer"
+                        data-analytics="trackEvent"
+                        data-analytics-category="Direct Award"
+                        data-analytics-action="External Link"
+                        >Download the G-Cloud 9 call-off contract</a>.<br>Read about <a href="https://www.gov.uk/guidance/how-to-award-a-contract-when-you-buy-services" target="_blank" rel="external noopener noreferrer"
+                        data-analytics="trackEvent"
+                        data-analytics-category="Direct Award"
+                        data-analytics-action="External Link"
+                        >how to award a contract when you buy services</a>.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-top">The buyer and supplier must both sign a copy of the contract before the service can be used.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-box inactive">Can&#39;t start yet</p>
+                    
+                  
+                
+                
+                
+              </li>
+            
+              <li class="instruction-list-item
+                
+                  divider
+                ">
+                
+                  
+                    <h2 class="instruction-list-item-body">Publish the contract</h2>
+                  
+                
+                
+                
+                
+                
+                
+                  
+                    
+                        <p class="instruction-list-item-top">Contracts worth over £10,000 must be published on <a href="https://www.gov.uk/contracts-finder" target="_blank" rel="external noopener noreferrer"
+                        data-analytics="trackEvent"
+                        data-analytics-category="Direct Award"
+                        data-analytics-action="External Link"
+                        >Contracts Finder</a>.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-box inactive">Can&#39;t start yet</p>
+                    
+                  
+                
+                
+                
+              </li>
+            
+              <li class="instruction-list-item
+                
+                  divider
+                ">
+                
+                  
+                    <h2 class="instruction-list-item-body">Complete the Customer Benefits Record form</h2>
+                  
+                
+                
+                
+                
+                
+                
+                  
+                    
+                        <p class="instruction-list-item-top">Fill in the Crown Commercial Service’s <a href="http://ccs-agreements.cabinetoffice.gov.uk/sites/default/files/contracts/G-Cloud%20Customer%20Benefits%20Record_4.docx" target="_blank" rel="external noopener noreferrer"
+                        data-analytics="trackEvent"
+                        data-analytics-category="Direct Award"
+                        data-analytics-action="External Link"
+                        >G-Cloud 9 Customer Benefits Record form</a>.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-top">Email a copy to <a href="mailto:gcloud-benefits@crowncommercial.gov.uk" target="_top"
+                          data-analytics="trackEvent"
+                          data-analytics-category="Direct Award"
+                          data-analytics-action="External Link"
+                          >gcloud-benefits@crowncommercial.gov.uk</a>.</p>
+                    
+                  
+                    
+                        <p class="instruction-list-item-box inactive">Can&#39;t start yet</p>
+                    
+                  
+                
+                
+                
+              </li>
+            
+          </ol>
+                  
+            </div>
+              <div class="column-one-third">
+                 <div class="temporary-message">
+  <h3 class="temporary-message-heading">
+    G‑Cloud 7 is closed for applications
+  </h3>
+  <p class="temporary-message-message">
+    Applications are being reviewed.
+  </p>
+  <p class="temporary-message-message">
+    G‑Cloud 7 services will be available from 23 November 2015.
+  </p>
+  
+  
+</div>
+
+
+            </div>
+          </div>
+          
+      
+    </main>
+  </div>
+<div class="report-a-problem-container">
+  <div class="report-a-problem-inner">
+    <div class="report-a-problem-content">
+      <h2>Help us improve the Digital Marketplace</h2>
+      <form autocomplete="off" action="/feedback" method="post">
+        <input type="hidden" name="csrf_token" value="IjQzN2Y4OGZmMGI2NjJkZjg3Yzk1MTQ0MzlmZDkzMzQ4Y2JkNDdmYjIi.Dc20Pg.1_oZpT2bmlYU52mWvefuSbKPelQ">
+        <input id="uri" name="uri" type="hidden" value="https://www.digitalmarketplace.service.gov.uk/g-cloud/search?q=">
+
+        <p>Please do not include personal details or sensitive information about your organisation or department.</p>
+
+        <label for="what_doing">What were you doing?</label>
+        <input autocomplete="off" id="what_doing" name="what_doing" type="text">
+
+        <label for="what_happened">What happened?</label>
+        <input autocomplete="off" id="what_happened" name="what_happened" type="text">
+
+        <div class="button-wrapper">
+          <button name="commit" type="submit" class="button">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

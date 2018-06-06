@@ -1,0 +1,2100 @@
+{% extends "layout.html" %}
+{% if data.canrefine==1 %}
+  {% set logged_in = true %}
+{% endif %}
+{% block page_title %}
+  Search – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" media="screen" href="/public/stylesheets/dm-styles.css" />
+<style>
+ a, button, input[type="submit"] {
+ 	pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/" class="can-click">Digital Marketplace</a></li>
+        <li><a href="/start-1">Cloud hosting, software and support</a></li>
+        <li>Cloud software</li>
+    </ol>
+  </nav>
+</div>
+
+<div id="wrapper">
+    <main id="content" role="main">
+      
+  
+
+      
+<header class="page-heading">
+        <h1 style="margin-bottom: 10px">Search results</h1>
+        <p class="search-summary">
+            {% if refined == true %}
+              <span class="search-summary-count search-summary-count--big">6</span> results found in <em>Cloud software</em> in the category <em>Blogging</em>, deployable to a <em>public cloud</em>, where the supplier is <em>not a reseller</em>, where user support is available through <em>web chat</em>, where users can access the service through an <em>API</em>, where usage metrics are provided through <em>API access</em>, with staff security clearance that <em>conforms to BS7858:2012</em> and with a <em>free trial</em>
+            {% else %}
+              <span class="search-summary-count search-summary-count--big">63</span> results found in <em>Cloud software</em> in the category <em>Blogging</em>, deployable to a <em>public cloud</em> and where the supplier is <em>not a reseller</em> 
+            {% endif %}
+          </p>
+          <!-- <div class="button-save-wrapper">
+            
+            <div class="save-summary-text ">
+            Refine your search to less than a 100 results to save it.
+            </div>
+          </div> -->
+          <div class="button-save-wrapper button-save-wrapper--2-lines">
+            <div class="save-button save-button--big">
+              <form action="{{ action }}" method="post">
+              <button id="save-search" class="can-click button button--submit" role="button" type="submit" data-analytics="trackEvent" data-analytics-category="Direct Award" data-analytics-action="Save search" data-analytics-label="19248"
+               {% if data.canrefine==1 %}style="pointer-events:none !important"{% endif %}>
+                Save your search terms
+              </button>
+            </form>
+            </div>
+          </div>
+
+</header>
+<div id="js-dm-live-search-wrapper" class="grid-row search-results-page">
+  <form action="/g-cloud/search" method="get" id="js-dm-live-search-form">
+    <section class="column-one-third search-page-filters" aria-label="Search filters">
+          
+  <div class="govuk-option-select filter-field-text filter-field-text--search">
+  <div class="container-head">
+    <label class="option-select-label" for="keywords">
+      Keyword search
+    </label>
+    <a id="dm-search-help-link" class="search-help-link can-click" href="/g-cloud/search?q=" role="button">
+      Help
+      <span id="triangle"></span>
+
+    </a>
+  </div>
+  <div class="container-hidden hidden" id="container-hidden">
+    <p>Add keywords until the results meet all your requirements.</p>
+    <p>Put a ‘-’ before a word to exclude it.</p>
+    <p>Use double quote marks to find services that match an exact phrase.</p>
+  </div>
+    <script>
+      document.getElementById('dm-search-help-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('container-hidden').classList.toggle('hidden');
+        document.getElementById('dm-search-help-link').classList.toggle('help-is-showing');
+      });
+      {% if refined != true and data.canrefine == 1 %}
+      setTimeout(function(){
+         $('.lot-filters--last-list, .options-container').click(function() {
+          window.location.href = "/ur/search-refined?canrefine=0";
+        })
+      }, 2000);
+      {% endif %}
+    </script>
+  <div class="container-search">
+    <input type="search" name="q" id="keywords" value="" maxlength="200">
+    <input class="submit" type="submit" value="Search">
+  </div>
+</div>
+
+
+<div id="js-dm-live-search-categories" class="js-dm-live-search-fade">
+  <div class="lot-filters">
+    <h2>Choose a category</h2>
+    
+    
+  
+
+  
+  
+  
+
+  <ul >
+    
+      
+         
+  
+    <li aria-current="page"><strong>All categories</strong>
+  
+
+  
+    
+  
+
+  
+  
+  
+
+  <ul class="lot-filters--last-list">
+    
+      
+        <li><a href="/g-cloud/search?lot=cloud-hosting">Cloud hosting (2741)</a></li>
+      
+    
+      
+        <li><a href="/g-cloud/search?lot=cloud-software">Cloud software (6557)</a></li>
+      
+    
+      
+        <li><a href="/g-cloud/search?lot=cloud-support">Cloud support (9951)</a></li>
+      
+    
+  </ul>
+  
+  </li>
+      
+    
+  </ul>
+  </div>
+</div>
+
+
+
+<div class="dm-filters">
+    <div id="js-dm-live-filter-title" class="dm-filter-title js-dm-live-search-fade">
+    <h2 class="apply-filters-title">Apply filters</h2>
+    <a id="dm-clear-all-filters" class="clear-filters-link" href="/g-cloud/search?q=" role="button">Clear filters</a>
+  </div>
+  <div>
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">Supplier type</div>
+  </div>
+  <div class="options-container" id="supplier-type" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="resellingType-not_reseller">
+          <input name="resellingType" value="not_reseller" id="resellingType-not_reseller" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Not a reseller
+        </label>
+      
+        <label for="resellingType-reseller_extra_features_and_support">
+          <input name="resellingType" value="reseller_extra_features_and_support" id="resellingType-reseller_extra_features_and_support" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Reseller providing extra features and support
+        </label>
+      
+        <label for="resellingType-reseller_extra_support">
+          <input name="resellingType" value="reseller_extra_support" id="resellingType-reseller_extra_support" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Reseller providing extra support
+        </label>
+      
+        <label for="resellingType-reseller_no_extras">
+          <input name="resellingType" value="reseller_no_extras" id="resellingType-reseller_no_extras" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Reseller (no extras)
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">User support</div>
+  </div>
+  <div class="options-container" id="user-support" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="emailOrTicketingSupport-yes">
+          <input name="emailOrTicketingSupport" value="yes" id="emailOrTicketingSupport-yes" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Email or online ticketing
+        </label>
+      
+        <label for="phoneSupport">
+          <input name="phoneSupport" value="true" id="phoneSupport" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Phone
+        </label>
+      
+        <label for="webChatSupport-yes">
+          <input name="webChatSupport" value="yes" id="webChatSupport-yes" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Web chat
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">Staff security clearance</div>
+  </div>
+  <div class="options-container" id="staff-security-clearance" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="staffSecurityClearanceChecks-staff_screening_to_bs7858_2012">
+          <input name="staffSecurityClearanceChecks" value="staff_screening_to_bs7858_2012" id="staffSecurityClearanceChecks-staff_screening_to_bs7858_2012" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Conforms to BS7858:2012
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">Minimum government security clearance</div>
+  </div>
+  <div class="options-container" id="minimum-government-security-clearance" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="governmentSecurityClearances-dv">
+          <input name="governmentSecurityClearances" value="dv" id="governmentSecurityClearances-dv" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Developed Vetting (DV)
+        </label>
+      
+        <label for="governmentSecurityClearances-sc">
+          <input name="governmentSecurityClearances" value="sc" id="governmentSecurityClearances-sc" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Security Clearance (SC)
+        </label>
+      
+        <label for="governmentSecurityClearances-bpss">
+          <input name="governmentSecurityClearances" value="bpss" id="governmentSecurityClearances-bpss" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Baseline Personnel Security Standard (BPSS)
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">Pricing options</div>
+  </div>
+  <div class="options-container" id="pricing-options" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="educationPricing">
+          <input name="educationPricing" value="true" id="educationPricing" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Discount for educational organisations
+        </label>
+      
+        <label for="freeVersionTrialOption">
+          <input name="freeVersionTrialOption" value="true" id="freeVersionTrialOption" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Free trial
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+  </div>
+  <button class="button-save js-hidden js-dm-live-search" type="submit" aria-controls="search-summary-accessible-hint-wrapper">Filter</button>
+</div>
+    </section>
+  </form>
+  <section class="column-two-thirds" aria-label="Search results">
+    
+    <div id="search-summary-accessible-hint-wrapper" class="search-summary-accessible-hint-wrapper" aria-atomic="true" aria-live="polite" aria-relevant="additions text">
+      <div id="js-dm-live-search-summary-accessible-hint">
+  73 results found
+</div>
+    </div>
+  <!--   <div id="js-dm-live-search-summary" class="js-dm-live-search-fade">
+  <p class="search-summary">
+    <span class="search-summary-count">73</span> results found in <em>Cloud software</em> in the category <em>Electronic document and records management (EDRM)</em>, where the supplier is a <em>reseller providing extra features and support</em> and where user support is available through <em>web chat</em>
+  </p>
+
+  
+
+</div>
+    <div id="js-dm-live-save-search-form">
+  <form action="/buyers/direct-award/g-cloud/save-search">
+    <input type="hidden" name="search_query" value="">
+    <div class="button-save-wrapper grid-row">
+      <div class="save-summary-text column-three-quarters">
+        Save details of your search and download your search results.
+      </div>
+      <div class="save-button column-one-quarter">
+        <a href="/login" id="save-search" class="can-click button-save" role="button" style="text-align:center">
+          Save search
+        </a>
+      </div>
+    </div>
+  </form>
+</div> -->
+
+
+<div id="js-dm-live-search-results" class="js-dm-live-search-fade" style="opacity: 1;">
+{% if refined == true %}
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/516268538036802">Drupal 8 Upgrade</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Drupal 8 is the latest version of a Content Management System (CMS) widely adopted in the public sector. Our experts have a refined process which expedites migration of your existing Drupal 6 &amp; Drupal 7 services to Drupal 8 so you may benefit from the improvements to this modern system 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/740250125679679">Microsoft Office 365</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Glemnet Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          Microsoft Office 365 is a cloud-based service that offers robust security, reliability, and user productivity.Office 365 includes Microsoft Office desktop suite with cloud-based versions including Microsoft Exchange Online, Microsoft SharePoint Online, Office Online, and Skype for Business Online—to help users be productive from virtually anywhere through the Internet. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/239801926288232">Drupal Consultancy Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Delivering digital services can be challenging and risky. With a wealth of sector experience, CTI’s Drupal Consulting Service is designed to streamline a path to the ‘right solution’. Engaging your stakeholders structured workshops achieves requirements capture. Rigorous analysis culminates in an architecture maximising benefits of adopting Drupal. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/875633446401893">Gaia Moodle Platform</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Gaia Technologies Plc
+      </p>
+
+      <p class="search-result-excerpt">
+          The Moodle platform is a free--and open source--course management system (CMS) that was originally developed by Moodle. The Moodle platform is used all over the world to host learning management systems for schools and universities' classes and training modules. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/254212377531497">Managed Hosting Service - Content Development &amp; Deployment</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Larmer Brown Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Provision of Cloud based responsive and adaptive eLearning Content creation tool including all technical, support, training and consultancy services. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/677113657576362">Microsoft Dynamics 365 / CRM Implementation</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Esuasive
+      </p>
+
+      <p class="search-result-excerpt">
+          End-to-end Microsoft Dynamics 365 solution design and project delivery, including: project management; road mapping; business process definition; fit gap analysis; PoC / solution prototyping; solution design;  configuration and customisation; systems integration; data cleansing and data migration; testing; training; deployment and business adoption; hypercare; long-term support. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+{% else %}
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/106197559190884">Drupal Development Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          CTI’s Drupal Development Service consistently delivers high ­quality digital services in a predictable and cost­ effective manner. Teams are equally capable enhancing existing Drupal solutions, architecting new platforms. Reflecting extensive public sector experience, naturally our rigorous processes satisfies concerns relating to quality assurance, accessibility, security and governance. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/261985733657863">SharePoint Development</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Cloud Cover IT Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          To design and tailor SharePoint to our clients' individual needs and implement the software to allow the client to use it to its best effect. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/668319198536167">Advanced Grant Management (GoPro AGM)</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CIVIC
+      </p>
+
+      <p class="search-result-excerpt">
+          The GoPro AGM enables organisations to effectively manage Grants and applications from disbursements, through availability announcement, assessment, award, activation and monitoring throughout the Grant lifecycle. Applications and projects are easy to set up and manage, with secure sign-on via a Stakeholder Portal wherever a user has access to the Internet. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/469081669287967">SharePoint Online Project Portals</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Business Cloud Integration Ltd.
+      </p>
+
+      <p class="search-result-excerpt">
+          Deploying SharePoint project portals help organisations manage projects with maximum efficiency and minimal risk. SharePoint project portals help organisations get the most from their employees and assets, run more efficient projects, effectively share knowledge and resources, and manage compliance requirements with granular permissions, enhanced auditing features, and clear reporting dashboards. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/531456785891409">SharePoint Online Business Process Automation</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Business Cloud Integration Ltd.
+      </p>
+
+      <p class="search-result-excerpt">
+          Helping organisations to streamline and automate business processes to increase efficiency, encourage process consistency across their organisations, help enforce compliance, and easily track processes from beginning to end. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/768136591979608">Microsoft Azure Cloud Adoption, Consultancy &amp; Implementation Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Tisski Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Full range of advice &amp; guidance, supply &amp; delivery and transition services for adopting Microsoft Azure Cloud Technologies. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/752600002645175">Office 365 Implementation and Migration</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Cloud Cover IT Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          To design and tailor SharePoint to our clients' individual needs and implement the software to allow the client to use it to its best effect. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/177904199889250">Gaia Open edX Platform</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Gaia Technologies Plc
+      </p>
+
+      <p class="search-result-excerpt">
+          The Open edX platform is a free--and open source--course management system (CMS) that was originally developed by edX. The Open edX platform is used all over the world to host Massive Open Online Courses (MOOCs) as well as smaller classes and training modules. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/178979762307770">Confluence</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion offer a full range of services for Confluence including Installation &amp; Configuration; Confluence Upgrades; Theme Design &amp; Implementation; Custom Plugin &amp; Macro Development; Integration with other third party applications; Data Visualisation; Custom Search Solutions; Confluence Hosting/Cloud Hosting; full Support with Service Level Agreements. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/935329461261927">Magento Development Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          CTI’s Magento Development Service consistently delivers high ­quality digital services in a predictable and cost­ effective manner. Teams are equally capable enhancing existing Magento solutions, architecting new platforms. Reflecting extensive public sector experience, naturally our rigorous processes satisfies concerns relating to quality assurance, accessibility, security and governance. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/606918160938757">Intranets</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion offer a full range of services for intranets including Installation &amp; Configuration; Confluence Upgrades; Theme Design &amp; Implementation; Custom Plugin &amp; Macro Development; Integration with other third party applications; Data Visualisation; Custom Search Solutions; Hosting/Cloud Hosting; full Support with Service Level Agreements. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/373133898562931">Gimmal Workplace Compliance</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          OfficeLabs Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          Gimmal Workplace Compliance provides enterprise-class content and records management in SharePoint. It implements information lifecycle management with automatic metadata governance which is invisible to the end user. Workplace Compliance Suite is the only SharePoint native records management solution to be DoD 5015.2 certified. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/504292060970597">Jigsaw24 - Adobe Creative Cloud</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Jigsaw24
+      </p>
+
+      <p class="search-result-excerpt">
+          You can download the most up to date versions of all the key Creative Suite apps, save projects in cloud storage, share them with clients to speed up approvals and sync content between all your devices. It lets you purchase, manage, and assign permissions via an easy to use portal. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/737773822755824">Office 365 / SharePoint EDRMS as a Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Version 1 Solutions Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Partnering with Automated Intelligence allows Version 1 to provide the UK’s most secure and connected environment for customers who require a fully compliance centric Office 365 / SharePoint solution. Providing a SharePoint implementation compliant with Information Governance and Record Management requirements, fully supported by our ISO 20000 accredited Managed Service 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/244297508067128">Gimmal Workplace Governance</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          OfficeLabs Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          Gimmal Workplace Governance helps you quickly deploy a SharePoint intranet, departmental portals, and collaboration sites which users love. With automation features that take the pain out of information policy enforcement and self service capabilities that empower users, Workplace Governance minimises demands on IT and ensures proper content governance. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/909108067588858">Cloud Application Development</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Incremental Group
+      </p>
+
+      <p class="search-result-excerpt">
+          Incremental Group offers a proven range of application development services, tailored to organisations needs. Increment Group does not believe that one size fits all, and adapts to organisation's requirements, both in terms of technology and approach. This provides organisations with a flexible, lower cost solution ensuring business needs are met. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/280123775776153">Data Integration</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion are experts at data cleansing, data integration and aggregation. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/455145334318418">Grant Management as a Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Version 1 Solutions Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Version 1 is experienced in providing flexible grant management solutions to Public Sector organisations. We provide two alternative technical platforms which can be chosen based on the detailed grant management requirements and the clients technical strategy and preferences. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/258824011969178">GoPro Integrated Compliance Case Management for GDPR</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          GoPro Consulting Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          Advanced CotS GDPR compliance case management. Provides out-of-the-box functionality for self-service individual rights management of personal data. Includes in-house capabilities to validate and manage applications, monitor structured/unstructured data source requests for pattern matching and collate results, manages (actual/attempted) breach notifications within the required 72 hour guidelines, with full PIA compliance. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/769325488526613">Single Sign On (OAuth2)</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          OAuth2 is an authorization framework, enabling applications to obtain limited access to user accounts on an HTTP service. It delegates user authentication to the service that hosts the user account, authorizing third-party applications to access the user account, providing authorization flows for web, desktop applications &amp; mobile devices. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/903771468636191">Dropbox for Business</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Gaia Technologies Plc
+      </p>
+
+      <p class="search-result-excerpt">
+          Dropbox for Business integrates powerful admin tools on top of the existing Dropbox platform. We allow your team to work from anywhere, syncing their important files across all their devices, while providing administrators the visibility and control necessary to keep your information secure. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/291614185840225">Digital Data Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion offer a full range of services data visualisation service involving developing innovative designs with leading software packages (dotCMS, Highcharts, etc.) to quickly achieve project success.  Full Support provided with Service Level Agreements. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/227694298129140">Websites</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion offer a full range of services for websites including Installation &amp; Configuration; website upgrades; Theme Design &amp; Implementation; Custom Plugin &amp; Macro Development; Integration with other third party applications; Data Visualisation; Custom Search Solutions; websiteHosting/Cloud Hosting; full Support with Service Level Agreements. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/232924860355360">Data Analytics &amp; Vizualisation</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion are experts at delivering data analytics and visualization solutions. Highcharts enables the adding interactive charts to your web site or web application. Highcharts currently supports line, spline, area, areaspline, column, bar, pie, scatter, angular gauges, arearange, areasplinerange, columnrange, bubble, box plot, error bars, funnel, waterfall and polar chart types. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/146457211249426">GoPro Advanced Case Management</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          GoPro Consulting Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          ACM provides a ‘Low Code, High Configuration’ platform for Agile configuration of modern Case Management solutions.  ACM combines workflow, rules, document management, CRM, reporting, Self-Service, and an External Stakeholder Collaboration Portal; a unique cloud collaboration capability to securely extend case access to external process stakeholders, for office-based and mobile users. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/367772393716713">Advanced Fraud Investigation &amp; Prevention (GoPro AFIP)</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CIVIC
+      </p>
+
+      <p class="search-result-excerpt">
+          AFIP (GoPro) enables aggregation of any content type and activity relating to a fraud “Investigation” across multiple organisations, previously siloed departments, including external stakeholders. Reinforcing investigation processes, and serving as a system of record for compliance , risk assessment and supporting execution plans to facilitate successful outcomes e.g. sanctions, prosecutions. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/269600111196885">Magento 2 Upgrade</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Magento2 is the latest version of this Open Source eCommerce Our experts have a refined process which expedites migration of your existing Magento 1 Community Edition (CE) &amp; Enterprise Edition (EE) services to Magento 2 so you may take advantage of the many benefits of this updated system. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/466354236390989">Microsoft Cloud Subscription &amp; Licence Management Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Tisski Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          As a Cloud Service Provider (CSP), Tisski offer a full range of advice &amp; guidance, supply &amp; delivery and transitioning services for Microsoft  Azure licensing. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/456354704634052">SharePoint Document Management</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          igroup Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          igroup provide a full document management solution based on SharePoint Online that improves version control, allows for the creation of bespoke approval workflows, and ensures that key documents are available to staff as required. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/916266976871186">Thintech: Desktop as a Service (DaaS) Flexidesk</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Thintech
+      </p>
+
+      <p class="search-result-excerpt">
+          Thintech have over 10 years’ experience in virtualisation technology, having delivered over 100,000 desktops and currently support over 60,000 users. Specialising in the public, banking and legal sectors, TT provide a hosted desktop solution with access to PSN and N3.  Their core offering includes dual site resilience with continuous replication. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/358620366868067">Contractor Safety and Compliance Management Solution</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Mitie Security Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Our Validate platform provides organisations with the ability to manage and monitor the training, skills, competence and compliance of both direct and indirect employees through advanced smartcard technologies to improve and streamline business processes 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/902919352894158">CGI - SAP Cloud Advisory, Implementation and Support and Maintenance Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CGI
+      </p>
+
+      <p class="search-result-excerpt">
+          To implement and support SAP cloud products including SuccessFactors, Hybris, Ariba, Concur, Fieldglass, HANA Enterprise Cloud, Simply Finance, S4H, Business Intelligence, Cloud for Customer 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/759709163413677">Magento Agile Project Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Delivering frequent releases of high-quality software positions organisations more able to innovate. By shortening the time to market you are better placed to deliver up to date relevant services responding to the demands present in today’s fast paced world. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/411723241391003">HighCharts</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion are experts at implementing and customising the Highcharts, Highstock, Highmaps, Highcharts Cloud &amp; Highslide JS products that provides the functionality and flexibility to meet even the most demanding and complex charting requirements for websites, analytics &amp; reporting packages, custom charting, presentations and more. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/207097030871284">Magento Continuous Delivery Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Magento Continuous Delivery adopts Agile Principles to achieve small units of high-quality software which are released frequently. Clients commit to a monthly resource capacity which guarantees cost effective ongoing development. Developers are scheduled and available in a predictable manner long-term. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/591073878933604">Tricostar Case Management</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Tricostar Software Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          TCM is a 100% web application- a true shared software service for multi departmental and cross authority usage - designed to provide case management for legal departments and others requiring electronic file case management. It includes workflow, reporting, CRM, customer service, knowledge management , marketing and a granular security model. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/734667700847526">Drupal Agile Project Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Delivering frequent releases of high-quality software positions organisations more able to innovate. By shortening the time to market you are better placed to deliver up to date relevant services responding to the demands present in today’s fast paced world. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/479373876392129">Microsoft Hybrid Cloud Adoption, Consultancy &amp; Implementation Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Tisski Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Full range of advice &amp; guidance, supply &amp; delivery and transition services for adopting Microsoft Azure in a hybrid Scenario. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/259536442513278">Drupal Continuous Delivery Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Drupal Continuous Delivery adopts Agile Principles to achieve small units of high-quality software which are released frequently. Clients commit to a monthly resource capacity which guarantees cost effective ongoing development. Developers are scheduled and available in a predictable manner long-term. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/783113966234697">Total Digital Engagement</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Congruis Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Total Digital Engagement solutions serve the trusted interaction needs of employees, customers and partners - with data and processes, with conversations and directories - in business and voluntary communities - massive, medium and small; closely or loosely knit; local, regional, national or global. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/666744278588030">Dynamics 365 CRM as a Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Version 1 Solutions Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Version 1 has combined our track record in Managed Services with our expertise as a Gold Partner in MS Dynamics 365 CRM to provide a Managed Service that gives reassurance that infrastructure and applications are being actively monitored and managed to the highest standards, ensuring optimum availability, reliability and performance. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/788491887472512">Sp Marketplace Development</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Cloud Cover IT Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          To design and tailor SharePoint to our clients' individual needs and implement the software to allow the client to use it to its best effect. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/738062581433289">dotCMS</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion offer a full range of services for dotCMS including Installation &amp; Configuration; dotCMS Upgrades; Theme Design &amp; Implementation; Custom Plugin &amp; Macro Development; Integration with other third party applications; Data Visualisation; Custom Search Solutions; dotCMS Hosting/Cloud Hosting; full Support with Service Level Agreements. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/318709191349443">Single Sign On (JOSSO)</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Equion Consulting Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Equion deliver Single Sign On via JOSSO ,an Open Source Internet SSO solution for rapid and standards-based (SAML2) Internet-scale Single Sign-On implementations, allowing secure Internet access to the Web-based applications or services of customers, suppliers, and business partners. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/706950527087412">Citrix Cloud Implementation and Consultancy Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Incremental Group
+      </p>
+
+      <p class="search-result-excerpt">
+          Incremental Group’s Citrix Cloud Implementation and Consultancy services provide support and advice in the adoption of, and transition to, Cloud-based Desktop and Application solutions using Citrix cloud technologies.  Our team of Citrix Certified Professionals work with organisations providing initial discovery and readiness, transition planning, cloud strategy, implementation and support services. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/536210454761299">GaiaOne</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Gaia Technologies Plc
+      </p>
+
+      <p class="search-result-excerpt">
+          GaiaOne is a swiss knife for your chosen Cloud Service that provides AD Integration, Shared Site Web Space, Single Sign On, Basic and Enhanced Identity Management, Web Application Desktop with customisable LaunchPads as well as Cloud Backup and round the clock support.  
+
+  Read the Service Description for more .... 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/400450557474664">Office 365 / SharePoint as a Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Version 1 Solutions Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Version 1 have combined our track record and expertise in Office 365 / SharePoint applications and environments to provide customers with a support solution that ensures their Office 365 /SharePoint infrastructure and applications are being actively monitored and managed to the highest standards, ensuring optimum availability, reliability and performance. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/925088522111253">Magento Consultancy Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Delivering digital services can be challenging and risky. With a wealth of sector experience, CTI’s Magento Consulting Service is designed to streamline a path to the ‘right solution’. Engaging your stakeholders structured workshops achieves requirements capture. Rigorous analysis culminates in an architecture maximising benefits of adopting Magento. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/697667782074008">The Source: Cloud Based Programme &amp; Project Controls System</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Arcadis
+      </p>
+
+      <p class="search-result-excerpt">
+          The Source is a Cloud based Portal and workflow solution to support effective capital programme and project controls. Addressing schedule, risk and change domains it provides an integrated document management and reporting environment. Accessible from any web browser it can be integrated with a range of industry solutions and applications. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/777401185118574">Microsoft Azure Subscription, Office 365, Dynamics and NAV  Licence Management Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Tisski Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          As a Cloud Service Provider (CSP), Tisski offer a full range of advice &amp; guidance, supply &amp; delivery and transitioning services for Microsoft  licensing including Azure, Office 365, Dynamics 365, Dynamics NAV, CRM, SaaS, IaaS and PaaS services. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/734592292447076">Kira (Cloud)</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Company Net Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          CompanyNet's 'Kira' branded Intranet solution for private/public or hybrid cloud, provides an enterprise class, bespoke corporate intranet and digital workplace at compelling costs with reduced timescales and risk. Built on SharePoint and Office 365, Kira delivers a mature, customised Intranet and digital workplace in a small number of service days. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/848506060007882">Dynamics 365 CRM Case Management as a Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Version 1 Solutions Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Microsoft Dynamics 365 CRM is particularly suitable as a flexible Case Management platform for Public Sector organisations, providing configurable case entities and flexible workflow module. Version 1 can provide an implementation tailored to the Case Management requirements of your organisation, fully supported by our ISO 20000 accredited Managed Service Practice. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/107428608726410">GoPro Advanced Fraud Investigation &amp; Prevention Case Management</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          GoPro Consulting Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          The most advanced CotS fraud investigation case management solution, with OOTB functionality for any type of referral and investigation. Low code, high configuration approach delivers 85%+ of requirements OOTB, quickly, easily, and cost-effectively. GDS-conformant micro-service architectural pattern and UI. Same functionality for the largest and small(er) organisations. No vendor lock-in. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/962358719526129">SharePoint (2013, 16, o365) and.Net migration, Support, Development, Custom Development Support</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Bridgeall Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Migration, Support, Development: o365 • SharePoint • PowerBI • Skype for Business • Project Management Office (PMO) • Records Management • Intranet, Continuous Improvement BI - BizzInsight • .Net Development 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/722296928829988">SharePoint Online Document Management</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Business Cloud Integration Ltd.
+      </p>
+
+      <p class="search-result-excerpt">
+          Document management solutions and best practice guidance to enable simplified collaboration, anytime, anywhere access, enhanced version control, easy and secure document sharing, self-service access to important documents, reducing email clutter, and enterprise search to help users find and access important information quickly and easily. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/212592727378522">SharePoint Online Intranet</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Business Cloud Integration Ltd.
+      </p>
+
+      <p class="search-result-excerpt">
+          With the help of our experts, deployment of, or migration to, Office 365 is a quick and smooth process. Whether migrating from Microsoft or older technologies, our team will help you plan and deploy your Office 365 success story. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/674230139539984">GoPro Advanced Grant Case Management</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          GoPro Consulting Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          Comprehensive full life cycle grant distribution management for all types of complex grant distribution schemes, including Research Grants. Guided application forms. Manage receipt of applications. Real-time information on reservations, allocations, spending, etc.  Monitoring, tracking, overview. reports, statistics.  Easy management of schemes and pools against budgets. Integration with Bids &amp; Costing. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/681593803851914">Advanced Workflow &amp; Case Management (GoPro ACM)</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CIVIC
+      </p>
+
+      <p class="search-result-excerpt">
+          ACM is a Case, Workflow and Document Management system providing comprehensive capabilities to deliver efficiency improvements while ensuring compliance with policies, procedures and legislation. It's proven "in service" scalability and security with Central and Local Government and Financial enterprises combines rich usability with functionality on Open, Microsoft  and IBM infrastructures. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/725758759774581">FCO Services - Microsoft Office 365</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          FCO Services
+      </p>
+
+      <p class="search-result-excerpt">
+          FCO Services managed Office 365 is a secure Public Cloud-based collaboration solution. Based on the Microsoft Office 365 platform it provides, email, document management, file storage, Instant messaging and advanced security and integration features.  The solution is suitable for both OFFICIAL and non OFFICIAL communication. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/464764595952045">Hybrid Cloud Management, Orchestration and Billing Services (Cisco CloudCenter, formerly CliQr)</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Cloud Digital Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          We are a Cisco CloudCenter Software partner. We engage, collaborate and deliver complete end to end Hybrid Cloud Management, Orchestration and Billing solutions including managed service options for internal and external cloud and vm support. Remove Shadow IT and grasp power and agility within internal cloud and public cloud offerings. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/598859566835158">Office 365 Advanced Audit and Compliance Analytics</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Business Cloud Integration Ltd.
+      </p>
+
+      <p class="search-result-excerpt">
+          Conduct in depth compliance reports and auditing with clear dashboards and overviews. Simplifying compliance with real time, automatically generated, pre-defined reports on user activity and behaviour at a granular permissions level. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/642747525788771">Microsoft Dynamics 365 / CRM for Housing</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Esuasive
+      </p>
+
+      <p class="search-result-excerpt">
+          Microsoft Dynamics 365 / CRM for Housing is designed from the ground up to meet the specific requirements of housing associations and local authority housing providers, reflecting the complex relationships between properties, tenants, tenancies and services and integrating  with existing housing management systems to deliver ‘joined up’ services to customers. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/443763507377281">Gimmal Workplace for SAP</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          OfficeLabs Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          Gimmal Workplace for SAP unifies content, data and processes related to SAP and SharePoint. It allows SAP and SharePoint users to collaborate and work on the same document-centric processes by connecting at the content level, the data level and the workflow level, putting critical information where people work. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/802161076554369">Blackbaud Grantmaking - Grants Management Software</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Buzzacott Computer Services Ltd t/as Buzzacott Giving Solutions
+      </p>
+
+      <p class="search-result-excerpt">
+          Our Service, Blackbaud Grantmaking (formerly known as MicroEdge GIFTS), is a SAAS off the shelf product designed to allow Online Applications, Reviews, Grants management, scholarships and outcomes. "Grantmaking" is designed to allow a user to tailor the system to meet an Organisation's workflow without the need for expensive custom programming. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/712853144003999">Microsoft Office 365</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Cloud2 Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          Cloud2 provide O365 K1, E1, E3, E5 licenses, implementation, support, consultancy, auditing, strategy, NHSMail2 comparison, stakeholder engagement with real world best practice examples including Microsoft FastTrack. Our ROI tool shows you the best route to success, hardware/software refresh, full blown migration, or combination. Our managed services greatly reduce migration complexity. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/495882807300787">Microsoft Cloud PaaS Consultancy and Management Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Tisski Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Tisski offer a full range of advice &amp; guidance, supply &amp; delivery and transitioning services for Microsoft  Cloud PaaS. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/523628208522277">Microsoft Cloud IaaS Consultancy and Management Services</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Tisski Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Tisski offer a full range of advice &amp; guidance, supply &amp; delivery and transitioning services for Microsoft  Cloud IaaS. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/516268538036802">Drupal 8 Upgrade</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Drupal 8 is the latest version of a Content Management System (CMS) widely adopted in the public sector. Our experts have a refined process which expedites migration of your existing Drupal 6 &amp; Drupal 7 services to Drupal 8 so you may benefit from the improvements to this modern system 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/740250125679679">Microsoft Office 365</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Glemnet Ltd
+      </p>
+
+      <p class="search-result-excerpt">
+          Microsoft Office 365 is a cloud-based service that offers robust security, reliability, and user productivity.Office 365 includes Microsoft Office desktop suite with cloud-based versions including Microsoft Exchange Online, Microsoft SharePoint Online, Office Online, and Skype for Business Online—to help users be productive from virtually anywhere through the Internet. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/239801926288232">Drupal Consultancy Service</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          CTI Digital
+      </p>
+
+      <p class="search-result-excerpt">
+          Delivering digital services can be challenging and risky. With a wealth of sector experience, CTI’s Drupal Consulting Service is designed to streamline a path to the ‘right solution’. Engaging your stakeholders structured workshops achieves requirements capture. Rigorous analysis culminates in an architecture maximising benefits of adopting Drupal. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/875633446401893">Gaia Moodle Platform</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Gaia Technologies Plc
+      </p>
+
+      <p class="search-result-excerpt">
+          The Moodle platform is a free--and open source--course management system (CMS) that was originally developed by Moodle. The Moodle platform is used all over the world to host learning management systems for schools and universities' classes and training modules. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/254212377531497">Managed Hosting Service - Content Development &amp; Deployment</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Larmer Brown Limited
+      </p>
+
+      <p class="search-result-excerpt">
+          Provision of Cloud based responsive and adaptive eLearning Content creation tool including all technical, support, training and consultancy services. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+
+  <div class="search-result">
+    <h2 class="search-result-title">
+          <a href="/g-cloud/services/677113657576362">Microsoft Dynamics 365 / CRM Implementation</a>
+      </h2>
+
+      <p class="search-result-supplier">
+          Esuasive
+      </p>
+
+      <p class="search-result-excerpt">
+          End-to-end Microsoft Dynamics 365 solution design and project delivery, including: project management; road mapping; business process definition; fit gap analysis; PoC / solution prototyping; solution design;  configuration and customisation; systems integration; data cleansing and data migration; testing; training; deployment and business adoption; hypercare; long-term support. 
+      </p>
+      <ul aria-label="tags" class="search-result-metadata">
+          <li class="search-result-metadata-item-inline">
+              Cloud software
+          </li>
+          <li class="search-result-metadata-item-inline">
+              G-Cloud 9
+          </li>
+      </ul>
+  </div>
+{% endif %}
+</div>
+</section>
+
+</div>
+
+    </main>
+  </div>
+<div class="report-a-problem-container">
+  <div class="report-a-problem-inner">
+    <div class="report-a-problem-content">
+      <h2>Help us improve the Digital Marketplace</h2>
+      <form autocomplete="off" action="/feedback" method="post">
+        <input type="hidden" name="csrf_token" value="IjQzN2Y4OGZmMGI2NjJkZjg3Yzk1MTQ0MzlmZDkzMzQ4Y2JkNDdmYjIi.Dc20Pg.1_oZpT2bmlYU52mWvefuSbKPelQ">
+        <input id="uri" name="uri" type="hidden" value="https://www.digitalmarketplace.service.gov.uk/g-cloud/search?q=">
+
+        <p>Please do not include personal details or sensitive information about your organisation or department.</p>
+
+        <label for="what_doing">What were you doing?</label>
+        <input autocomplete="off" id="what_doing" name="what_doing" type="text">
+
+        <label for="what_happened">What happened?</label>
+        <input autocomplete="off" id="what_happened" name="what_happened" type="text">
+
+        <div class="button-wrapper">
+          <button name="commit" type="submit" class="button">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

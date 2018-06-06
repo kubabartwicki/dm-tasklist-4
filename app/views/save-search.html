@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+{% set logged_in = true %}
+{% block page_title %}
+  Choose where to save your search – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" media="screen" href="/public/stylesheets/dm-styles.css" />
+<style>
+ a, button, input[type="submit"] {
+ 	pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/" class="can-click">Digital Marketplace</a></li>
+        <li><a href="/search">Search</a></li>
+        <li>Save your category, keywords and filters</li>
+    </ol>
+  </nav>
+</div>
+
+<div id="wrapper">
+   <main id="content" role="main">
+         
+     
+
+         
+
+   <div class="single-question-page save-search-page">
+     <div class="grid-row">
+       <div class="column-one-whole">
+           
+       </div>
+     </div>
+     <div class="grid-row">
+       <div class="column-two-thirds">
+         <header class="page-heading page-heading-without-breadcrumb">
+           <h1>
+             Save your search
+           </h1>
+         </header>
+       </div>
+     </div>
+     <form method="post" action="{{ action }}">
+       <div class="grid-row">
+         <div class="column-two-thirds">
+           <div class="search-summary-panel panel panel-border-wide">
+             
+               <p class="search-summary">
+     <span class="search-summary-count search-summary-count--big">6</span> results found in <em>Cloud software</em> in the category <em>Blogging</em>, deployable to a <em>public cloud</em>, where the supplier is <em>not a reseller</em>, where user support is available through <em>web chat</em>, where users can access the service through an <em>API</em>, where usage metrics are provided through <em>API access</em>, with staff security clearance that <em>conforms to BS7858:2012</em> and with a <em>free trial</em>
+   </p>
+             
+           </div>
+
+          
+           
+          <fieldset>
+          
+          
+
+          <div>
+          
+              
+
+              
+
+              <div class="multiple-choice" data-target="new-search">
+                <input type="radio" name="save_search_selection" value="new_search" id="project-new" aria-required="true" checked="checked" aria-controls="new-search" aria-expanded="true">
+                <label for="project-new">Save a new search</label>
+              </div>
+              <div class="panel panel-border-narrow" id="new-search" aria-hidden="false">
+                
+                <div>
+                  <div class="question" id="name">
+                    <label class="question-heading" for="project_name">Name your search</label>
+                    <p>Name your search. A reference number or short description of what you want to buy makes a good name.</p>
+                    <p class="hint">
+                      100 characters maximum
+                    </p>
+                    
+                    <input class="text-box" id="project_name" name="name" type="text" value="">
+                  </div>
+                </div>
+                <div style="margin-top: 40px;">
+                  <div class="question" id="name">
+                    <label class="question-heading" for="project_name">Name your search</label>
+                    <p>Organisation the service is for</p>
+                    <p class="hint">
+                      For example, National Audit Office or Lewisham Council
+                    </p>
+                    
+                    <input class="text-box" id="project_name" name="name" type="text" value="">
+                  </div>
+                </div>
+              </div>
+
+
+          </div>
+        </fieldset>
+
+           <br>
+
+           <input type="hidden" name="csrf_token" value="IjZjM2Q5NWQxZWNjZGJkMTBkMGEwMWZlZDkwZTBhYzgzNWQ0MjdjM2Ei.Ddbsiw.mboTVb8Kv0H751EGNTKGmcV4PDM">
+           <input type="hidden" name="search_query" value="serviceCategories=electronic+document+and+records+management+%28edrm%29&amp;resellingType=reseller_extra_features_and_support&amp;webChatSupport=yes&amp;lot=cloud-software">
+           <input type="submit" class="can-click button-save" name="return_to_overview" value="Save and continue">
+
+         </div>
+       </div>
+     </form>
+   </div>
+
+       </main>
+  </div>
+<div class="report-a-problem-container">
+  <div class="report-a-problem-inner">
+    <div class="report-a-problem-content">
+      <h2>Help us improve the Digital Marketplace</h2>
+      <form autocomplete="off" action="/feedback" method="post">
+        <input type="hidden" name="csrf_token" value="IjQzN2Y4OGZmMGI2NjJkZjg3Yzk1MTQ0MzlmZDkzMzQ4Y2JkNDdmYjIi.Dc20Pg.1_oZpT2bmlYU52mWvefuSbKPelQ">
+        <input id="uri" name="uri" type="hidden" value="https://www.digitalmarketplace.service.gov.uk/g-cloud/search?q=">
+
+        <p>Please do not include personal details or sensitive information about your organisation or department.</p>
+
+        <label for="what_doing">What were you doing?</label>
+        <input autocomplete="off" id="what_doing" name="what_doing" type="text">
+
+        <label for="what_happened">What happened?</label>
+        <input autocomplete="off" id="what_happened" name="what_happened" type="text">
+
+        <div class="button-wrapper">
+          <button name="commit" type="submit" class="button">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

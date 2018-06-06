@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+{% set logged_in = true %}
+{% block page_title %}
+  Before you download your results – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" media="screen" href="/public/stylesheets/dm-styles.css" />
+<style>
+ a, button, input[type="submit"] {
+ 	pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        <li><a href="/">Your account</a></li>
+        <li><a href="/">Your saved searches</a></li>
+        <li><a class="can-click" href="{{ previousStep }}">Buying some cloud software</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div id="wrapper">
+   <main id="content" role="main">
+         
+     
+
+         
+
+   <div class="single-question-page save-search-page">
+     <div class="grid-row">
+       <div class="column-one-whole">
+           
+       </div>
+     </div>
+     <div class="grid-row">
+       <div class="column-two-thirds">
+         <header class="page-heading-smaller page-heading-without-breadcrumb">
+           <h1>
+             Before you download your results
+           </h1>
+         </header>
+       </div>
+     </div>
+     <form method="post" action="{{ action }}">
+       <div class="grid-row">
+         <div class="column-two-thirds">
+          <p>Do not continue if you still need to edit your search terms.</p>
+          <p style="margin-top:10px">You should only download your results when you’re ready to assess the services you’ve found.</p>
+          <p style="margin-top:10px">Search results are available as a spreadsheet or as comma-separated values (CSV). Both file types include service descriptions, pricing and supplier contact information.</p>
+
+           <input type="hidden" name="csrf_token" value="IjZjM2Q5NWQxZWNjZGJkMTBkMGEwMWZlZDkwZTBhYzgzNWQ0MjdjM2Ei.Ddbsiw.mboTVb8Kv0H751EGNTKGmcV4PDM">
+           <input type="hidden" name="search_query" value="serviceCategories=electronic+document+and+records+management+%28edrm%29&amp;resellingType=reseller_extra_features_and_support&amp;webChatSupport=yes&amp;lot=cloud-software">
+           <input type="submit" class="can-click button-save" name="return_to_overview" value="Continue" style="margin-top: 20px">
+
+           <p class="return-to-overview">
+             <a href="{{ previousStep }}" class="can-click">Return to overview</a>
+           </p>
+         </div>
+       </div>
+     </form>
+   </div>
+
+       </main>
+  </div>
+<div class="report-a-problem-container">
+  <div class="report-a-problem-inner">
+    <div class="report-a-problem-content">
+      <h2>Help us improve the Digital Marketplace</h2>
+      <form autocomplete="off" action="/feedback" method="post">
+        <input type="hidden" name="csrf_token" value="IjQzN2Y4OGZmMGI2NjJkZjg3Yzk1MTQ0MzlmZDkzMzQ4Y2JkNDdmYjIi.Dc20Pg.1_oZpT2bmlYU52mWvefuSbKPelQ">
+        <input id="uri" name="uri" type="hidden" value="https://www.digitalmarketplace.service.gov.uk/g-cloud/search?q=">
+
+        <p>Please do not include personal details or sensitive information about your organisation or department.</p>
+
+        <label for="what_doing">What were you doing?</label>
+        <input autocomplete="off" id="what_doing" name="what_doing" type="text">
+
+        <label for="what_happened">What happened?</label>
+        <input autocomplete="off" id="what_happened" name="what_happened" type="text">
+
+        <div class="button-wrapper">
+          <button name="commit" type="submit" class="button">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

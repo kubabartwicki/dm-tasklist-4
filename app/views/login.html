@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Log in – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" media="screen" href="/public/stylesheets/dm-styles.css" />
+<style>
+ a, button, input[type="submit"] {
+ 	pointer-events: none !important;
+ }
+</style>
+
+<div id="wrapper">
+    <main id="content" role="main">
+
+
+  <header class="page-heading page-heading-without-breadcrumb"><h1>
+    Log in to the Digital Marketplace
+  </h1>
+</header>
+
+
+<form autocomplete="off" action="{{ action }}" method="POST">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+
+            <input id="csrf_token" name="csrf_token" type="hidden" value="IjcxMGY1NWE4NGEzZTU4MzI3ODFkODk5MzVkZmNkYzQ5OGE5NGI2NDUi.Dc2oKQ.4y-ppb6Bh_aflIoHP_4sgW1Msqs">
+
+            
+                <div class="question" id="email_address">
+                    <label class="question-heading" for="input_email_address">Email address</label>
+                    <p class="hint">
+                        Enter the email address you used to register with the Digital Marketplace
+                    </p>
+                    
+                    <input autocomplete="off" class="text-box" id="input_email_address" name="email_address" type="text" value="">
+                </div>
+            
+
+            
+                <div class="question" id="password">
+                    <label class="question-heading" for="input_password">Password</label>
+                    
+                    <input autocomplete="off" class="text-box" id="input_password" name="password" type="password" value="">
+                </div>
+            
+
+            
+              <div class="secondary-action-link">
+  <a href='/user/reset-password'>Forgotten password</a>
+</div>
+            
+
+            
+              <input value="Log in" type="submit" class="button-save can-click" />
+            
+
+            
+              <div class="secondary-action-link-bigger">
+  <a href='/buyers/create'>Create a buyer account</a>
+</div>
+            
+
+        </div>
+    </div>
+</form>
+
+    </main>
+  </div>
+
+{% endblock %}

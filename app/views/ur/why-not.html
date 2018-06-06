@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Did you award the contract?
+{% endblock %}
+
+{% block content %}
+
+<style>
+ a, button, input[type="submit"] {
+  pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        <li><a href="/">Your account</a></li>
+        <li><a href="/saved-searches">Your saved searches</a></li>
+        <li><a href="/ur/search-summary" class="can-click">Buying some cloud software</a></li>
+        <li>Why didn't you award a contract?</li>
+    </ol>
+  </nav>
+</div>
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+        Why didn't you award a contract?
+      </h1>
+    </div>
+  </div>
+  <div class="grid-row direct-award-project-overview-page">
+    <div class="column-two-thirds">
+      <form method="post" >
+        <div class="form-group">
+          <fieldset>
+            <div class="multiple-choice">
+              <input id="radio-1" type="radio" name="radiogroup2" value="The work has been cancelled">
+              <label for="radio-1">
+                The work has been cancelled
+                <span class="form-hint">For example, because you no longer have the budget</span>
+              </label>
+            </div>
+            <div class="multiple-choice">
+              <input id="radio-2" type="radio" name="radiogroup2" value="No suitable services found">
+              <label for="radio-2">
+                There were no suitable services
+                <span class="form-hint">The services in your search results did not meet your requirements</span>
+              </label>
+            </div>
+            <!--<div class="multiple-choice">
+              <input id="radio-3" type="radio" name="radiogroup2" value="Used another route to market">
+              <label for="radio-3">
+                You found another way to buy cloud services
+                <span class="form-hint">For example, publishing an opportunity for an outcome or specialist</span>
+              </label>
+            </div>-->
+          </fieldset>
+        </div>
+        <input type="submit" class="button can-click" value="Submit">
+      </form>
+
+      <p class="return-to-overview">
+        <a href="/ur?step=4" class="can-click">Previous page</a>
+      </p>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

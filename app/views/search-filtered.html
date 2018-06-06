@@ -1,0 +1,477 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Search – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" media="screen" href="/public/stylesheets/dm-styles.css" />
+<style>
+ a, button, input[type="submit"] {
+ 	pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/" class="can-click">Digital Marketplace</a></li>
+        <li><a href="/start-1">Cloud hosting, software and support</a></li>
+        <li>Cloud software</li>
+    </ol>
+  </nav>
+</div>
+
+<div id="wrapper">
+    <main id="content" role="main">
+      
+  
+
+      
+<header class="page-heading">
+        <h1 style="margin-bottom: 10px">Search results</h1>
+        <p class="search-summary">
+            <span class="search-summary-count search-summary-count--big">6</span> results found in <em>Cloud software</em> in the category <em>Electronic document and records management (EDRM)</em>, where the supplier is a <em>reseller providing extra features and support</em> and where user support is available through <em>web chat</em>
+          </p>
+          <!-- <div class="button-save-wrapper">
+            
+            <div class="save-summary-text ">
+            Refine your search to less than a 100 results to save it.
+            </div>
+          </div> -->
+          <div class="button-save-wrapper button-save-wrapper--2-lines">
+            <div class="save-button save-button--big">
+              <form action="{{ action }}">
+              <button id="save-search" class="can-click button button--submit" role="button" type="submit" data-analytics="trackEvent" data-analytics-category="Direct Award" data-analytics-action="Save search" data-analytics-label="19248">
+                Save your search terms
+              </button>
+            </form>
+            </div>
+          </div>
+
+</header>
+<div id="js-dm-live-search-wrapper" class="grid-row search-results-page">
+  <form action="/g-cloud/search" method="get" id="js-dm-live-search-form">
+    <section class="column-one-third search-page-filters" aria-label="Search filters">
+          
+  <div class="govuk-option-select filter-field-text filter-field-text--search">
+  <div class="container-head">
+    <label class="option-select-label" for="keywords">
+      Keyword search
+    </label>
+    <a id="dm-search-help-link" class="search-help-link can-click" href="/g-cloud/search?q=" role="button">
+      Help
+      <span id="triangle"></span>
+
+    </a>
+  </div>
+  <div class="container-hidden hidden" id="container-hidden">
+    <p>Add keywords until the results meet all your requirements.</p>
+    <p>Put a ‘-’ before a word to exclude it.</p>
+    <p>Use double quote marks to find services that match an exact phrase.</p>
+  </div>
+  <script>
+    document.getElementById('dm-search-help-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('container-hidden').classList.toggle('hidden');
+      document.getElementById('dm-search-help-link').classList.toggle('help-is-showing');
+    });
+
+  </script>
+  <div class="container-search">
+    <input type="search" name="q" id="keywords" value="" maxlength="200">
+    <input class="submit" type="submit" value="Search">
+  </div>
+</div>
+
+
+<div id="js-dm-live-search-categories" class="js-dm-live-search-fade">
+  <div class="lot-filters">
+    <h2>Choose a category</h2>
+    
+    
+  
+
+  
+  
+  
+
+  <ul >
+    
+      
+         
+  
+    <li aria-current="page"><strong>All categories</strong>
+  
+
+  
+    
+  
+
+  
+  
+  
+
+  <ul class="lot-filters--last-list">
+    
+      
+        <li><a href="/g-cloud/search?lot=cloud-hosting">Cloud hosting (2741)</a></li>
+      
+    
+      
+        <li><a href="/g-cloud/search?lot=cloud-software">Cloud software (6557)</a></li>
+      
+    
+      
+        <li><a href="/g-cloud/search?lot=cloud-support">Cloud support (9951)</a></li>
+      
+    
+  </ul>
+  
+  </li>
+      
+    
+  </ul>
+  </div>
+</div>
+
+
+
+<div class="dm-filters">
+    <div id="js-dm-live-filter-title" class="dm-filter-title js-dm-live-search-fade">
+    <h2 class="apply-filters-title">Apply filters</h2>
+    <a id="dm-clear-all-filters" class="clear-filters-link" href="/g-cloud/search?q=" role="button">Clear filters</a>
+  </div>
+  <div>
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">Supplier type</div>
+  </div>
+  <div class="options-container" id="supplier-type" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="resellingType-not_reseller">
+          <input name="resellingType" value="not_reseller" id="resellingType-not_reseller" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Not a reseller
+        </label>
+      
+        <label for="resellingType-reseller_extra_features_and_support">
+          <input name="resellingType" value="reseller_extra_features_and_support" id="resellingType-reseller_extra_features_and_support" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Reseller providing extra features and support
+        </label>
+      
+        <label for="resellingType-reseller_extra_support">
+          <input name="resellingType" value="reseller_extra_support" id="resellingType-reseller_extra_support" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Reseller providing extra support
+        </label>
+      
+        <label for="resellingType-reseller_no_extras">
+          <input name="resellingType" value="reseller_no_extras" id="resellingType-reseller_no_extras" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Reseller (no extras)
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">User support</div>
+  </div>
+  <div class="options-container" id="user-support" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="emailOrTicketingSupport-yes">
+          <input name="emailOrTicketingSupport" value="yes" id="emailOrTicketingSupport-yes" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Email or online ticketing
+        </label>
+      
+        <label for="phoneSupport">
+          <input name="phoneSupport" value="true" id="phoneSupport" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Phone
+        </label>
+      
+        <label for="webChatSupport-yes">
+          <input name="webChatSupport" value="yes" id="webChatSupport-yes" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Web chat
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">Staff security clearance</div>
+  </div>
+  <div class="options-container" id="staff-security-clearance" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="staffSecurityClearanceChecks-staff_screening_to_bs7858_2012">
+          <input name="staffSecurityClearanceChecks" value="staff_screening_to_bs7858_2012" id="staffSecurityClearanceChecks-staff_screening_to_bs7858_2012" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Conforms to BS7858:2012
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">Minimum government security clearance</div>
+  </div>
+  <div class="options-container" id="minimum-government-security-clearance" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="governmentSecurityClearances-dv">
+          <input name="governmentSecurityClearances" value="dv" id="governmentSecurityClearances-dv" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Developed Vetting (DV)
+        </label>
+      
+        <label for="governmentSecurityClearances-sc">
+          <input name="governmentSecurityClearances" value="sc" id="governmentSecurityClearances-sc" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Security Clearance (SC)
+        </label>
+      
+        <label for="governmentSecurityClearances-bpss">
+          <input name="governmentSecurityClearances" value="bpss" id="governmentSecurityClearances-bpss" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Baseline Personnel Security Standard (BPSS)
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+      
+        <div class="govuk-option-select" >
+  <div class="container-head js-container-head">
+    <div class="option-select-label">Pricing options</div>
+  </div>
+  <div class="options-container" id="pricing-options" data-framework="g-cloud" >
+    <div class="js-auto-height-inner">
+      
+        <label for="educationPricing">
+          <input name="educationPricing" value="true" id="educationPricing" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Discount for educational organisations
+        </label>
+      
+        <label for="freeVersionTrialOption">
+          <input name="freeVersionTrialOption" value="true" id="freeVersionTrialOption" type="checkbox" aria-controls="search-summary-accessible-hint-wrapper">
+          Free trial
+        </label>
+      
+    </div>
+  </div>
+</div>
+      
+    
+  </div>
+  <button class="button-save js-hidden js-dm-live-search" type="submit" aria-controls="search-summary-accessible-hint-wrapper">Filter</button>
+</div>
+    </section>
+  </form>
+  <section class="column-two-thirds" aria-label="Search results">
+    
+    <div id="search-summary-accessible-hint-wrapper" class="search-summary-accessible-hint-wrapper" aria-atomic="true" aria-live="polite" aria-relevant="additions text">
+      <div id="js-dm-live-search-summary-accessible-hint">
+  73 results found
+</div>
+    </div>
+  <!--   <div id="js-dm-live-search-summary" class="js-dm-live-search-fade">
+  <p class="search-summary">
+    <span class="search-summary-count">73</span> results found in <em>Cloud software</em> in the category <em>Electronic document and records management (EDRM)</em>, where the supplier is a <em>reseller providing extra features and support</em> and where user support is available through <em>web chat</em>
+  </p>
+
+  
+
+</div>
+    <div id="js-dm-live-save-search-form">
+  <form action="/buyers/direct-award/g-cloud/save-search">
+    <input type="hidden" name="search_query" value="">
+    <div class="button-save-wrapper grid-row">
+      <div class="save-summary-text column-three-quarters">
+        Save details of your search and download your search results.
+      </div>
+      <div class="save-button column-one-quarter">
+        <a href="/login" id="save-search" class="can-click button-save" role="button" style="text-align:center">
+          Save search
+        </a>
+      </div>
+    </div>
+  </form>
+</div> -->
+  
+<div id="js-dm-live-search-results" class="js-dm-live-search-fade" style="opacity: 1;">
+  
+<div class="search-result">
+  <h2 class="search-result-title">
+        <a href="/g-cloud/services/106197559190884">Drupal Development Service</a>
+    </h2>
+
+    <p class="search-result-supplier">
+        CTI Digital
+    </p>
+
+    <p class="search-result-excerpt">
+        CTI’s Drupal Development Service consistently delivers high ­quality digital services in a predictable and cost­ effective manner. Teams are equally capable enhancing existing Drupal solutions, architecting new platforms. Reflecting extensive public sector experience, naturally our rigorous processes satisfies concerns relating to quality assurance, accessibility, security and governance. 
+    </p>
+    <ul aria-label="tags" class="search-result-metadata">
+        <li class="search-result-metadata-item-inline">
+            Cloud software
+        </li>
+        <li class="search-result-metadata-item-inline">
+            G-Cloud 9
+        </li>
+    </ul>
+</div>
+
+<div class="search-result">
+  <h2 class="search-result-title">
+        <a href="/g-cloud/services/261985733657863">SharePoint Development</a>
+    </h2>
+
+    <p class="search-result-supplier">
+        Cloud Cover IT Limited
+    </p>
+
+    <p class="search-result-excerpt">
+        To design and tailor SharePoint to our clients' individual needs and implement the software to allow the client to use it to its best effect. 
+    </p>
+    <ul aria-label="tags" class="search-result-metadata">
+        <li class="search-result-metadata-item-inline">
+            Cloud software
+        </li>
+        <li class="search-result-metadata-item-inline">
+            G-Cloud 9
+        </li>
+    </ul>
+</div>
+
+<div class="search-result">
+  <h2 class="search-result-title">
+        <a href="/g-cloud/services/668319198536167">Advanced Grant Management (GoPro AGM)</a>
+    </h2>
+
+    <p class="search-result-supplier">
+        CIVIC
+    </p>
+
+    <p class="search-result-excerpt">
+        The GoPro AGM enables organisations to effectively manage Grants and applications from disbursements, through availability announcement, assessment, award, activation and monitoring throughout the Grant lifecycle. Applications and projects are easy to set up and manage, with secure sign-on via a Stakeholder Portal wherever a user has access to the Internet. 
+    </p>
+    <ul aria-label="tags" class="search-result-metadata">
+        <li class="search-result-metadata-item-inline">
+            Cloud software
+        </li>
+        <li class="search-result-metadata-item-inline">
+            G-Cloud 9
+        </li>
+    </ul>
+</div>
+
+<div class="search-result">
+  <h2 class="search-result-title">
+        <a href="/g-cloud/services/469081669287967">SharePoint Online Project Portals</a>
+    </h2>
+
+    <p class="search-result-supplier">
+        Business Cloud Integration Ltd.
+    </p>
+
+    <p class="search-result-excerpt">
+        Deploying SharePoint project portals help organisations manage projects with maximum efficiency and minimal risk. SharePoint project portals help organisations get the most from their employees and assets, run more efficient projects, effectively share knowledge and resources, and manage compliance requirements with granular permissions, enhanced auditing features, and clear reporting dashboards. 
+    </p>
+    <ul aria-label="tags" class="search-result-metadata">
+        <li class="search-result-metadata-item-inline">
+            Cloud software
+        </li>
+        <li class="search-result-metadata-item-inline">
+            G-Cloud 9
+        </li>
+    </ul>
+</div>
+
+<div class="search-result">
+  <h2 class="search-result-title">
+        <a href="/g-cloud/services/531456785891409">SharePoint Online Business Process Automation</a>
+    </h2>
+
+    <p class="search-result-supplier">
+        Business Cloud Integration Ltd.
+    </p>
+
+    <p class="search-result-excerpt">
+        Helping organisations to streamline and automate business processes to increase efficiency, encourage process consistency across their organisations, help enforce compliance, and easily track processes from beginning to end. 
+    </p>
+    <ul aria-label="tags" class="search-result-metadata">
+        <li class="search-result-metadata-item-inline">
+            Cloud software
+        </li>
+        <li class="search-result-metadata-item-inline">
+            G-Cloud 9
+        </li>
+    </ul>
+</div>
+
+<div class="search-result">
+  <h2 class="search-result-title">
+        <a href="/g-cloud/services/768136591979608">Microsoft Azure Cloud Adoption, Consultancy &amp; Implementation Services</a>
+    </h2>
+
+    <p class="search-result-supplier">
+        Tisski Limited
+    </p>
+
+    <p class="search-result-excerpt">
+        Full range of advice &amp; guidance, supply &amp; delivery and transition services for adopting Microsoft Azure Cloud Technologies. 
+    </p>
+    <ul aria-label="tags" class="search-result-metadata">
+        <li class="search-result-metadata-item-inline">
+            Cloud software
+        </li>
+        <li class="search-result-metadata-item-inline">
+            G-Cloud 9
+        </li>
+    </ul>
+</div>
+</div>
+  </section>
+
+</div>
+
+    </main>
+  </div>
+<div class="report-a-problem-container">
+  <div class="report-a-problem-inner">
+    <div class="report-a-problem-content">
+      <h2>Help us improve the Digital Marketplace</h2>
+      <form autocomplete="off" action="/feedback" method="post">
+        <input type="hidden" name="csrf_token" value="IjQzN2Y4OGZmMGI2NjJkZjg3Yzk1MTQ0MzlmZDkzMzQ4Y2JkNDdmYjIi.Dc20Pg.1_oZpT2bmlYU52mWvefuSbKPelQ">
+        <input id="uri" name="uri" type="hidden" value="https://www.digitalmarketplace.service.gov.uk/g-cloud/search?q=">
+
+        <p>Please do not include personal details or sensitive information about your organisation or department.</p>
+
+        <label for="what_doing">What were you doing?</label>
+        <input autocomplete="off" id="what_doing" name="what_doing" type="text">
+
+        <label for="what_happened">What happened?</label>
+        <input autocomplete="off" id="what_happened" name="what_happened" type="text">
+
+        <div class="button-wrapper">
+          <button name="commit" type="submit" class="button">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

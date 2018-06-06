@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Your archived search terms
+{% endblock %}
+
+{% block content %}
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        <li><a href="/">Your account</a></li>
+    </ol>
+  </nav>
+</div>
+
+<main id="content" role="main">
+    <div class="grid-row">
+        <div class="column-two-thirds">
+          <h1 class="heading-xlarge" style="margin-top: 40px;margin-bottom: 40px">
+            Your archived search terms
+          </h1>
+        </div>
+    </div>
+    <div class="grid">
+
+
+
+
+        <!-- <h2 class="summary-item-heading" id="search_ended_table">
+
+          Search ended
+      </h2> -->
+
+
+        <table class="summary-item-body">
+        <caption class="visually-hidden">
+          Summary table
+        </caption>
+        <thead class="summary-item-field-headings-visible">
+          <tr>
+
+              <th scope="col" class="summary-item-field-heading-first">
+
+                  Name
+
+              </th>
+
+
+
+              <th scope="col" class="summary-item-field-heading">
+
+                  Archived at
+
+              </th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+
+
+          <tr class="summary-item-row">
+
+
+      <td class="summary-item-field-first-half">
+
+          <span>Buying some hosting</span>
+
+      </td>
+
+      
+      <td class="summary-item-field">
+
+          <span>Monday 16 April 2018 at 10:01am BST</span>
+
+      </td>
+
+      </tr>
+
+            <tr class="summary-item-row">
+
+
+        <td class="summary-item-field-first-half">
+
+            <span>Bought some Drupal support</span>
+
+        </td>
+
+        
+
+        <td class="summary-item-field">
+
+            <span>Wednesday 7 April 2018 at 12:35pm BST</span>
+
+        </td>
+
+        </tr>
+        <tr class="summary-item-row">
+
+
+        <td class="summary-item-field-first-half">
+
+            <span>Tried to buy cloud services</span>
+
+        </td>
+
+        
+        <td class="summary-item-field">
+
+            <span>Thursday 2 November 2017 at 9:00am BST</span>
+
+        </td>
+
+        </tr>
+
+        <tr class="summary-item-row">
+
+
+          <td class="summary-item-field-first-half">
+
+            <span>Another attempt to buy cloud services</span>
+
+          </td>
+
+          
+          <td class="summary-item-field">
+
+            <span>Friday 8 January 2017 at 11:00am BST</span>
+
+          </td>
+
+      </tr>
+
+        </tbody>
+      </table>
+
+      <p style="margin-top: 40px"><a href="/saved-search-terms" class="button">Return to Your saved searches</a></p>
+      </div>
+</main>
+
+{% endblock %}
