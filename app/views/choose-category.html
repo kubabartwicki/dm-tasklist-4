@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-
+{% set logged_in = true %}
 {% block page_title %}
   Digital Marketplace
 {% endblock %}
@@ -9,9 +9,10 @@
 <div id="global-breadcrumb" class="header-context">
   <nav>
     <ol class="group" role="breadcrumbs">
-        <li><a href="/ur">Digital Marketplace</a></li>
+        <li><a href="/">Digital Marketplace</a></li>
         
-          <li><a href="/ur/summary?step=0">Find cloud hosting, software and support</a></li>
+          <li><a href="/summary?step=0">Find cloud hosting, software and support</a></li>
+          <li>Choose a category</li>
         
     </ol>
   </nav>
@@ -20,11 +21,11 @@
 <main id="content" role="main">
   	<div class="grid-row">
 	    <div class="column-two-thirds">
-	    	<h1 class="heading-large">
+	    	<h1 class="heading-xlarge">
 	    	        Choose a category
 	    	      </h1>
 
-	            <form class="form" action="/ur/search?canrefine=0" style="margin-top: 30px">
+	            <form class="form" action="/search?canrefine=0" method="post" style="margin-top: 30px">
 
 	              <fieldset>
 
@@ -33,11 +34,7 @@
 	                            <input id="radio-1" type="radio" name="radio-group" value="Northern Ireland">
 	                            <label for="radio-1"><p class="bold">Cloud hosting</p>
 
-	                            <p>Find cloud platform or infrastructure services to help you:</p>
-	                            <ul>
-	                            <li>deploy, manage and run software</li>
-	                            <li>provision and use processing, storage or networking resources</li>
-	                            </ul>
+	                            <p>Platform or infrastructure services for running software, networking, or processing and storing data.</p>
 	                            <p class="browse-list-item-subtext">
 	                                eg content delivery networks or load balancing services
 	                              </p></label>
@@ -49,7 +46,7 @@
 	                            <label for="radio-2"><p class="bold">Cloud software</p>
 
 	                            <p class="browse-list-item-body">
-	                                        Find software applications that are accessed over the internet and hosted in the cloud.
+	                                        Applications that are accessed over the internet and hosted in the cloud.
 	                                      </p>
 	                            <p class="browse-list-item-subtext">
 	                                        eg accounting tools or customer service management software
@@ -61,7 +58,7 @@
 	                            <label for="radio-3"><p class="bold">Cloud support</p>
 
 	                            <p class="browse-list-item-body">
-	                                        Find cloud support services to help you set up and maintain your cloud software or hosting services.
+	                                        Services to help you set up and maintain your cloud software or hosting services.
 	                                      </p>
 	                            <p class="browse-list-item-subtext">
 	                                        eg migration services or ongoing support

@@ -77,7 +77,7 @@
     <div class="grid-row">
         <div class="column-two-thirds">
             
-            <ol class="task-list task-list--lowercase task-list--transparent task-list--start-page task-list--short-margin task-list--small-titles task-list--with-lines task-list--with-numbers task-list--no-indent task-list--with-badges task-list--blue-badges" style="margin-left: -35px">
+            <ol class="task-list task-list--lowercase task-list--transparent task-list--start-page task-list--short-margin task-list--small-titles task-list--with-lines task-list--with-numbers task-list--no-indent task-list--with-badges task-list--blue-badges task-list--expands task-list--expands-float" style="margin-left: -35px">
               <li {% if data.step == '1' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
                 <h2 class="task-list-section">
                   <span class="task-list-section-number">1</span> Save a search {% if data.step and data.step > '1' and data.noCurrentStep != '1' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% endif %}
@@ -101,7 +101,7 @@
                       </a>
                     {% endif %}
                     {% if data.step == '0' or not data.step %}
-                      <a class="task-name button" href="/ur/choose-category" style="margin-top: 10px;">
+                      <a class="task-name button" href="/choose-category">
                         Start a new search
                       </a><hr style="background: transparent;display:block;width:100%;margin:0;"></hr>
                       <a class="task-name" href="?step=1" style="margin-top: 5px; pointer-events: none;">
@@ -119,11 +119,12 @@
                     <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
                   {% endif %}
                 </h2>
+                <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
                 <p class="task-list-description">Export a list of the services you’ve found. Download suppliers’ service descriptions and contact details to help you assess services. Keep a copy for your records.</p>
                 <ul class="task-list-items task-list-items--single-task">
                   <li class="task-list-item">
                     {% if data.step == '2' %}
-                    <a class="task-name button" href="/ur/before-you-download">
+                    <a class="task-name button" href="/before-you-download">
                       Export your results
                     </a>
                     {% endif %}
@@ -131,7 +132,7 @@
                       <p class="browse-list-item-status-angry"><strong>You have too many services to assess. Refine your search until you have no more than 30 results.</strong></p>
                     {% endif %}
                     {% if data.step == '3' or data.step == '4' or data.step == '5' or data.step == '6' %}
-                    <a class="task-name" href="/ur/download?flash=0" style="">
+                    <a class="task-name" href="/download?flash=0" style="">
                       Download your results again
                     </a>
                     {% endif %}
@@ -145,11 +146,12 @@
                       <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
                     {% endif %}
                 </h2>
+                <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
                 <p class="task-list-description">Follow the guidance for <a href="#">assessing services</a>. Choose the one that best meets your budget and requirements. Do not hold a competition to decide the winner. You can <a href="#">contact suppliers to ask questions</a>, but you must not negotiate with them.</p>
                 <ul class="task-list-items task-list-items--single-task">
                   <li class="task-list-item">
                     {% if data.step == '3' and data.noCurrentStep != '1' %}
-                    <a class="task-name button" href="/ur?step=4&review_flash=1">
+                    <a class="task-name button" href="/summary?step=4&review_flash=1">
                       I have read and understood how to assess services
                     </a>
                     {% endif %}
@@ -163,6 +165,7 @@
                       <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
                     {% endif %}
                 </h2>
+                <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
                 <p class="task-list-description">Follow the guidance for <a href="#">awarding a contract</a>. Check if you need to <a href="#">publish the details on Contracts Finder</a>. After you award your contract, tell us the outcome. We collect this information to help us improve the Digital Marketplace.</p>
                 {% if data.step == '5' and data.not_awarded != '1' %}
                 <p class="search-summary task-list-description task-list-description--toolkit">
@@ -176,7 +179,7 @@
                 <ul class="task-list-items task-list-items--single-task">
                   <li class="task-list-item">
                     {% if data.step == '4' and data.noCurrentStep != '1' %}
-                        <a class="task-name button" href="/ur/did-you-award">
+                        <a class="task-name button" href="/did-you-award">
                           Tell us the outcome
                         </a>
                     {% endif %}
@@ -190,6 +193,7 @@
                   {% endif %}
                   {% if data.step == '6' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% endif %}
                 </h2>
+                <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
                 <p class="task-list-description">Fill in the <a href="#">Customer Benefits Record form</a> and email it to the Crown Commercial Service at <a href="#">gcloud-benefits@crowncommercial.gov.uk</a>. They will contact you if they find any issues with the supplier.</p>
                 
                 <ul class="task-list-items task-list-items--single-task">

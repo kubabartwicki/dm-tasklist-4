@@ -975,3 +975,31 @@ custom stuff here
 .banner-success-without-action {
   margin-bottom: 40px;
 }
+
+/* round 4 */
+.task-list--expands {
+  .expand-link {
+    margin-bottom: 0;
+  }
+  &.task-list--expands-float {
+    .expand-link {
+      margin-top: 2px;
+      float: right;
+    }
+    .task-list-section {
+      float: left;
+      padding-bottom: 0;
+    }
+  }
+  .task-list-description {
+    display: none;
+  }
+  > li:first-child {
+    .task-list-description {
+      display: block;
+    }
+    .task-list-section {
+      float: none;
+    }
+  }
+}
