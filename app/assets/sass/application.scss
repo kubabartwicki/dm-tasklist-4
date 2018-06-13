@@ -987,6 +987,17 @@ custom stuff here
     &::-webkit-details-marker {
       display: none;
     }
+    &:hover {
+      .task-list-section {
+        color: #005ea5;
+      }
+      .font-xsmall {
+        text-decoration: underline;
+      }
+    }
+    .task-list-section {
+      color: $black;
+    }
     .hide { display: none; }
     .show { display: inline; }
   }
@@ -999,13 +1010,20 @@ custom stuff here
     > li {
       position: relative;
     }
-    .expand-link {
-      margin-top: 2px;
+    summary {
+      width: 100%;
+    }
+    details {
+      margin-bottom: -10px;
+    }
+    summary .font-xsmall {
       float: right;
       position: absolute;
       right: 0;
-      top: 20px;
+      top: 2px;
     }
-    
+    details[open] .expand-link {
+      margin-bottom: 0;
+    }
   }
 }

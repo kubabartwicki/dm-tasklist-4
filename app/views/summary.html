@@ -112,6 +112,10 @@
                 </ul>
               </li>
               <li {% if data.step == '2' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
+                {% if data.step == '0' %}
+                <details>
+                <summary class="expand-link">
+                {% endif %}
                 <h2 class="task-list-section">
                   <span class="task-list-section-number">2</span> Export your results
                   {% if data.step == '3' or data.step == '4' or data.step == '5' or data.step == '6' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% endif %}
@@ -120,8 +124,8 @@
                   {% endif %}
                 </h2>
                 {% if data.step == '0' %}
-                <details>
-                  <summary class="font-xsmall expand-link"><span class="show">Show</span><span class="hide">Hide</span> details</summary>
+                  <span class="font-xsmall "><span class="show">Show</span><span class="hide">Hide</span> details</span>
+                </summary>
                 {% endif %}
                 <p class="task-list-description">Export a list of the services you’ve found. Download suppliers’ service descriptions and contact details to help you assess services. Keep a copy for your records.</p>
                 {% if data.step == '0' %}
@@ -146,15 +150,19 @@
                 </ul>
               </li>
               <li {% if data.step == '3' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
-                <h2 class="task-list-section">
+                {% if data.step == '0' %}
+                <details>
+                <summary class="expand-link">
+                {% endif %}
+                  <h2 class="task-list-section">
                   <span class="task-list-section-number">3</span> Start assessing services
                   {% if data.step and data.step > '3' and data.noCurrentStep != '1' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% elseif data.step < '3' and data.noCurrentStep != '1' and data.step != '0' %}
                       <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
                     {% endif %}
                 </h2>
                 {% if data.step == '0' %}
-                <details>
-                  <summary class="font-xsmall expand-link"><span class="show">Show</span><span class="hide">Hide</span> details</summary>
+                  <span class="font-xsmall "><span class="show">Show</span><span class="hide">Hide</span> details</span>
+                </summary>
                 {% endif %}
                   <p class="task-list-description">Follow the <a href="#">guidance for assessing services</a>. Choose the one that best meets your budget and requirements. Do not hold a competition to decide the winner. You can <a href="#">contact suppliers to ask clarification questions</a>, but you must not negotiate with them.</p>
                 {% if data.step == '0' %}
@@ -171,15 +179,19 @@
                 </ul>
               </li>
               <li {% if data.step == '4' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
-                <h2 class="task-list-section">
+                {% if data.step == '0' %}
+                <details>
+                <summary class="expand-link">
+                {% endif %}
+                  <h2 class="task-list-section">
                   <span class="task-list-section-number">4</span> Award a contract
                   {% if data.step and data.step > '4' and data.noCurrentStep != '1' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% elseif data.step < '4' and data.noCurrentStep != '1' and data.step != '0' %}
                       <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
                     {% endif %}
                 </h2>
                 {% if data.step == '0' %}
-                <details>
-                  <summary class="font-xsmall expand-link"><span class="show">Show</span><span class="hide">Hide</span> details</summary>
+                  <span class="font-xsmall "><span class="show">Show</span><span class="hide">Hide</span> details</span>
+                </summary>
                 {% endif %}
                   <p class="task-list-description">Follow the guidance for <a href="#">awarding a contract</a>. Check if you need to <a href="#">publish the details on Contracts Finder</a>. After you award your contract, tell us the outcome. We collect this information to help us improve the Digital Marketplace.</p>
                 {% if data.step == '0' %}
@@ -205,17 +217,21 @@
                 </ul>
               </li>
               <li {% if data.step == '5' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
-                <h2 class="task-list-section">
-                  <span class="task-list-section-number">5</span> Complete the Customer Benefits Record{% if data.step and data.step < '5' and data.noCurrentStep != '1' and data.step != '0' %}
-                    <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
-                  {% endif %}
-                  {% if data.step == '6' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% endif %}
-                </h2>
                 {% if data.step == '0' %}
-                <details> 
-                  <summary class="font-xsmall expand-link"><span class="show">Show</span><span class="hide">Hide</span> details</summary>
+                <details>
+                <summary class="expand-link">
                 {% endif %}
-                  <p class="task-list-description">You must fill in the <a href="#">Customer Benefits Record form</a> and email it to the Crown Commercial Service at <a href="#">gcloud-benefits@crowncommercial.gov.uk</a>. They will contact you if they find any issues with the supplier.</p>
+                  <h2 class="task-list-section">
+                    <span class="task-list-section-number">5</span> Complete the Customer Benefits Record{% if data.step and data.step < '5' and data.noCurrentStep != '1' and data.step != '0' %}
+                      <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
+                    {% endif %}
+                    {% if data.step == '6' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% endif %}
+                  </h2>
+                  {% if data.step == '0' %}
+                  <span class="font-xsmall "><span class="show">Show</span><span class="hide">Hide</span> details</span>
+                </summary>
+                {% endif %}
+                <p class="task-list-description">You must fill in the <a href="#">Customer Benefits Record form</a> and email it to the Crown Commercial Service at <a href="#">gcloud-benefits@crowncommercial.gov.uk</a>. They will contact you if they find any issues with the supplier.</p>
                 {% if data.step == '0' %}
                 </details>
                 {% endif %}
