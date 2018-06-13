@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% set logged_in = true %}
 {% block page_title %}
-  Search summary (1)
+  Search summary (2)
 {% endblock %}
 
 {% block content %}
@@ -35,7 +35,7 @@
       <div class="column-full">
         <div class="banner-success-without-action">
             <p class="banner-message">
-              You’ve confirmed that you have read and understood how to assess services.
+              You’ve confirmed that you understand how to assess services.
             </p>
         </div>  
       </div>
@@ -119,8 +119,10 @@
                     <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
                   {% endif %}
                 </h2>
-                <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
-                <p class="task-list-description">Export a list of the services you’ve found. Download suppliers’ service descriptions and contact details to help you assess services. Keep a copy for your records.</p>
+                <details>
+                  <summary class="font-xsmall expand-link"><span class="show">Show</span><span class="hide">Hide</span> details</summary>
+                  <p class="task-list-description">Export a list of the services you’ve found. Download suppliers’ service descriptions and contact details to help you assess services. Keep a copy for your records.</p>
+                </details>
                 <ul class="task-list-items task-list-items--single-task">
                   <li class="task-list-item">
                     {% if data.step == '2' %}
@@ -146,8 +148,10 @@
                       <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
                     {% endif %}
                 </h2>
-                <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
-                <p class="task-list-description">Follow the <a href="#">guidance for assessing services</a>. Choose the one that best meets your budget and requirements. Do not hold a competition to decide the winner. You can <a href="#">contact suppliers to ask clarification questions</a>, but you must not negotiate with them.</p>
+                <details>
+                  <summary class="font-xsmall expand-link"><span class="show">Show</span><span class="hide">Hide</span> details</summary>
+                  <p class="task-list-description">Follow the <a href="#">guidance for assessing services</a>. Choose the one that best meets your budget and requirements. Do not hold a competition to decide the winner. You can <a href="#">contact suppliers to ask clarification questions</a>, but you must not negotiate with them.</p>
+                </details>
                 <ul class="task-list-items task-list-items--single-task">
                   <li class="task-list-item">
                     {% if data.step == '3' and data.noCurrentStep != '1' %}
@@ -165,8 +169,10 @@
                       <strong class="task-completed task-cant-start task-completed--block" id="company-information-completed">Can't start yet</strong>
                     {% endif %}
                 </h2>
-                <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
-                <p class="task-list-description">Follow the guidance for <a href="#">awarding a contract</a>. Check if you need to <a href="#">publish the details on Contracts Finder</a>. After you award your contract, tell us the outcome. We collect this information to help us improve the Digital Marketplace.</p>
+                <details>
+                  <summary class="font-xsmall expand-link"><span class="show">Show</span><span class="hide">Hide</span> details</summary>
+                  <p class="task-list-description">Follow the guidance for <a href="#">awarding a contract</a>. Check if you need to <a href="#">publish the details on Contracts Finder</a>. After you award your contract, tell us the outcome. We collect this information to help us improve the Digital Marketplace.</p>
+                </details>
                 {% if data.step == '5' and data.not_awarded != '1' %}
                 <p class="search-summary task-list-description task-list-description--toolkit">
                     Contract awarded to Gaia Moodle Platform.
@@ -193,9 +199,10 @@
                   {% endif %}
                   {% if data.step == '6' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% endif %}
                 </h2>
-                <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
-                <p class="task-list-description">You must fill in the <a href="#">Customer Benefits Record form</a> and email it to the Crown Commercial Service at <a href="#">gcloud-benefits@crowncommercial.gov.uk</a>. They will contact you if they find any issues with the supplier.</p>
-                
+                <details>
+                  <summary class="font-xsmall expand-link"><span class="show">Show</span><span class="hide">Hide</span> details</summary>
+                  <p class="task-list-description">You must fill in the <a href="#">Customer Benefits Record form</a> and email it to the Crown Commercial Service at <a href="#">gcloud-benefits@crowncommercial.gov.uk</a>. They will contact you if they find any issues with the supplier.</p>
+                </details>
                 <ul class="task-list-items task-list-items--single-task">
                   <li class="task-list-item">
                   {% if data.step == '5' or data.step == '3' and data.noCurrentStep == '1' or data.step == '4' and data.noCurrentStep == '1' %}

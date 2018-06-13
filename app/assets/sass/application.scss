@@ -978,28 +978,34 @@ custom stuff here
 
 /* round 4 */
 .task-list--expands {
+  .task-list-section {
+    padding-bottom: 0;
+  }
   .expand-link {
     margin-bottom: 0;
+    list-style: none;
+    &::-webkit-details-marker {
+      display: none;
+    }
+    .hide { display: none; }
+    .show { display: inline; }
+  }
+  details[open] .expand-link {
+    .hide { display: inline; }
+    .show { display: none;}
+    margin-bottom: 10px;
   }
   &.task-list--expands-float {
+    > li {
+      position: relative;
+    }
     .expand-link {
       margin-top: 2px;
       float: right;
+      position: absolute;
+      right: 0;
+      top: 20px;
     }
-    .task-list-section {
-      float: left;
-      padding-bottom: 0;
-    }
-  }
-  .task-list-description {
-    display: none;
-  }
-  > li:first-child {
-    .task-list-description {
-      display: block;
-    }
-    .task-list-section {
-      float: none;
-    }
+    
   }
 }
