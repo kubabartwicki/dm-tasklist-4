@@ -35,7 +35,7 @@
       <div class="column-full">
         <div class="banner-success-without-action">
             <p class="banner-message">
-              You’ve confirmed that you understand how to assess services.
+              You’ve confirmed that you have read and understood how to assess services.
             </p>
         </div>  
       </div>
@@ -147,12 +147,12 @@
                     {% endif %}
                 </h2>
                 <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
-                <p class="task-list-description">Follow the guidance for <a href="#">assessing services</a>. Choose the one that best meets your budget and requirements. Do not hold a competition to decide the winner. You can <a href="#">contact suppliers to ask questions</a>, but you must not negotiate with them.</p>
+                <p class="task-list-description">Follow the <a href="#">guidance for assessing services</a>. Choose the one that best meets your budget and requirements. Do not hold a competition to decide the winner. You can <a href="#">contact suppliers to ask clarification questions</a>, but you must not negotiate with them.</p>
                 <ul class="task-list-items task-list-items--single-task">
                   <li class="task-list-item">
                     {% if data.step == '3' and data.noCurrentStep != '1' %}
                     <a class="task-name button" href="/summary?step=4&review_flash=1">
-                      I have read and understood how to assess services
+                      Confirm you have read and understood how to assess services
                     </a>
                     {% endif %}
                   </li>
@@ -194,7 +194,7 @@
                   {% if data.step == '6' %}<strong class="task-completed task-completed--block" id="company-information-completed">Completed</strong>{% endif %}
                 </h2>
                 <p class="font-xsmall expand-link"><a href="#">Show details</a></p>
-                <p class="task-list-description">Fill in the <a href="#">Customer Benefits Record form</a> and email it to the Crown Commercial Service at <a href="#">gcloud-benefits@crowncommercial.gov.uk</a>. They will contact you if they find any issues with the supplier.</p>
+                <p class="task-list-description">You must fill in the <a href="#">Customer Benefits Record form</a> and email it to the Crown Commercial Service at <a href="#">gcloud-benefits@crowncommercial.gov.uk</a>. They will contact you if they find any issues with the supplier.</p>
                 
                 <ul class="task-list-items task-list-items--single-task">
                   <li class="task-list-item">
@@ -208,33 +208,6 @@
         </div>
         {% if data.step != '0' %}
         <div class="column-one-third dmspeak">
-          <ul style="padding-top:10px;border-top: 4px solid #005ea5;margin-top:30px">
-            <li style="margin-bottom: -10px;">
-              {% if data.step < 5 %}
-              <p>You’re on step {{ data.step }} of 5: <br/><span class="bold">
-                {% if data.step == '1' %}
-                  Save a search
-                {% elseif data.step == '2' %}
-                  Export your results
-                {% elseif data.step == '3' %}
-                  Start assessing services
-                {% elseif data.step == '4' %}
-                  Award a contract
-                {% endif %}
-              </span>
-              </p>
-              {% endif %}
-              <p>
-              {% if data.step == '5' and data.not_awarded != '1' %}
-                Contract awarded to Gaia Moodle Platform
-              {% elseif data.step == '5' and data.not_awarded == '1' %}
-                No suitable services found
-              {% endif %}
-              </p>
-            <li>
-              <a href="/archive" style="pointer-events: none">Archive this search</a>
-            </li>
-          </ul>
         </div>
         {% endif %}
     </div>
