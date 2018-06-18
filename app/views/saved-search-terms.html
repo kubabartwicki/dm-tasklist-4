@@ -16,9 +16,19 @@
 </div>
 
 <main id="content" role="main">
+
     <div class="grid-row">
+        {% if data.flash == 1 and data.step == 2 %}
+        <div class="column-full">
+          <div class="banner-success-without-action">
+              <p class="banner-message">
+                Your search has been archived.
+              </p>
+          </div>  
+        </div>
+        {% endif %}
         <div class="column-two-thirds">
-          <h1 class="heading-xlarge" style="margin-top: 40px;margin-bottom: 40px">
+          <h1 class="heading-xlarge" style="margin-top: 20px;margin-bottom: 40px">
             Your saved searches
           </h1>
         </div>
@@ -165,7 +175,7 @@
         </tbody>
       </table>
       <a href="/search" class="button" style="margin-top:40px">Start a new search</a>
-      <p style="margin-top: 15px"><a href="/archived-searches">View your archived search terms</a></p>
+      <p style="margin-top: 20px"><a href="/archived-searches">View your archived searches</a></p>
       </div>
 </main>
 
