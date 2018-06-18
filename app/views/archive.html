@@ -39,9 +39,9 @@
      </div>
      <div class="grid-row">
        <div class="column-two-thirds">
-         <header class="page-heading-smaller page-heading-without-breadcrumb">
+         <header class="page-heading page-heading-without-breadcrumb">
            <h1>
-             Are you sure you want to archive this search?
+             Why do you want to archive this search?
            </h1>
          </header>
        </div>
@@ -49,22 +49,36 @@
      <form method="post" action="{{ action }}">
        <div class="grid-row">
          <div class="column-two-thirds">
-          <p>Do not continue if you still need to edit your search terms.</p>
-          <p style="margin-top:10px">You should only download your results when you’re ready to assess the services you’ve found.</p>
-          <p style="margin-top:10px">Search results are available as a spreadsheet or as comma-separated values (CSV). Both file types include service descriptions, pricing and supplier contact information.</p>
-
-               <!--  <div class="multiple-choice" style="margin-top:40px;margin-bottom:40px;clear:left;width:100%;">
-                  <input id="nationalities-british" name="nationalities" type="checkbox" value="British">
-                  <label for="nationalities-british">Yes, I know what I am doing</label>
-                </div>
-
- -->
-           <input type="hidden" name="csrf_token" value="IjZjM2Q5NWQxZWNjZGJkMTBkMGEwMWZlZDkwZTBhYzgzNWQ0MjdjM2Ei.Ddbsiw.mboTVb8Kv0H751EGNTKGmcV4PDM">
-           <input type="hidden" name="search_query" value="serviceCategories=electronic+document+and+records+management+%28edrm%29&amp;resellingType=reseller_extra_features_and_support&amp;webChatSupport=yes&amp;lot=cloud-software">
-           <input type="submit" class="can-click button-save" name="return_to_overview" value="Archive this search" style="margin-top: 20px">
-
+          
+              <div class="form-group">
+                <fieldset>
+                  <div class="multiple-choice">
+                    <input id="radio-1" type="radio" name="radiogroup2" value="The work has been cancelled">
+                    <label for="radio-1">
+                      The work has been cancelled
+                      <span class="form-hint">For example, because you no longer have the budget</span>
+                    </label>
+                  </div>
+                  <div class="multiple-choice">
+                    <input id="radio-2" type="radio" name="radiogroup2" value="No suitable services found">
+                    <label for="radio-2">
+                      There were no suitable services
+                      <span class="form-hint">The services in your search results did not meet your requirements</span>
+                    </label>
+                  </div>
+                  <div class="multiple-choice">
+                    <input id="radio-3" type="radio" name="radiogroup2" value="Used another route to market">
+                    <label for="radio-3">
+                      You found another way to buy cloud services
+                      <span class="form-hint">For example, publishing an opportunity for an outcome or specialist</span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+              <p style="margin-bottom: 40px">This action can not be undone. You should only archive a search if you did not award a contract for it.</p>
+              <input type="submit" class="button button-save can-click" value="Archive this search">
            <p class="return-to-overview">
-             <a href="{{ previousStep }}" class="can-click">Return to overview</a>
+             <a href="{{ previousStep }}" class="can-click">Return to task list</a>
            </p>
          </div>
        </div>

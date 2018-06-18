@@ -257,7 +257,7 @@ li.instruction-list-item.divider:first-of-type {
 .divider p.instruction-list-item-top, .divider a.instruction-list-item-action, .divider p.instruction-list-item-box {
   margin-top: 1em;
 }
-.banner-destructive-without-action, .banner-destructive-with-action, .banner-warning-with-action, .banner-warning-without-action, .banner-success-with-action, .banner-success-without-action, .banner-information-with-action, .banner-information-without-action, .banner-temporary-message-without-action {
+.banner-destructive-without-action, .banner-destructive-with-action, .banner-warning-with-action, .banner-warning-without-action, .banner-success-with-action, .banner-success-without-action, .banner-information-with-action, .banner-information-without-action, .banner-temporary-message-without-action, .banner-information-without-action {
 font-family: "nta", Arial, sans-serif;
 font-weight: 400;
 text-transform: none;
@@ -972,8 +972,11 @@ custom stuff here
     margin-top: 40px;
   }
 }
-.banner-success-without-action {
+.banner-success-without-action, .banner-information-without-action {
   margin-bottom: 40px;
+}
+.banner-information-without-action {
+  color: #005ea5;
 }
 
 /* round 4 */
@@ -1024,6 +1027,38 @@ custom stuff here
     }
     details[open] .expand-link {
       margin-bottom: 0;
+    }
+  }
+}
+
+table.summary-item-body-no-bottom-border-text-large tbody td, table.summary-item-body-no-bottom-border-row-bold-borders-text-large tbody td, table.summary-item-body-no-bottom-border-row-bold-borders tbody td, table.summary-item-body-no-bottom-border tbody td, table.summary-item-body-row-bold-borders-text-large tbody td, table.summary-item-body-row-bold-borders tbody td, table.summary-item-body tbody td {
+padding-top: 12px;
+padding-bottom: 9px;
+vertical-align: top;
+}
+.summary-item-field-with-action {
+text-align: right;
+padding-left: 12px;
+font-size: 16px;
+line-height:20px;
+}
+.archived-searches .summary-item-field-first-half-b {
+width: 50%;
+padding-right: 12px;
+}
+.archived-searches {
+  td, th {
+    &:nth-child(1) {
+    width: 30%;
+    }
+    &:nth-child(2) {
+      width: 22%;
+    }
+    &:nth-child(3) {
+      width: 33%;
+    }
+    &:nth-child(4) {
+      max-width: 15%;
     }
   }
 }
