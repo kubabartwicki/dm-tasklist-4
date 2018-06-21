@@ -1,0 +1,179 @@
+{% extends "layout.html" %}
+{% set logged_in = true %}
+{% block page_title %}
+  Buying some cloud software – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        {% if data.step == '0' %}
+          <li>Find cloud hosting, software and support</li>
+        {% else %}
+          <li><a href="/" style="pointer-events:none">Your account</a></li>
+          <li><a href="/" style="pointer-events:none">Your saved searches</a></li>
+          <li>Buying some cloud software</li>
+        {% endif %}
+    </ol>
+  </nav>
+</div>
+
+<style>
+.task-list-description a, .task-list a, .task-list button {
+  pointer-events: none;
+}
+</style>
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+      <div class="column-two-thirds">
+        <h1 class="heading-xlarge" style="margin-bottom: 20px">
+          {% if data.step == '0' %}
+            Find cloud hosting, software and support
+            <p class="lede" style="margin-top: 20px;">
+              Before you start you should <a href="#">write a list of requirements</a> and <a href="#">check if you need approval</a> to spend money.
+            </p>
+          {% else %}
+            <span class="heading-secondary">Lewisham Council</span>
+            Buying some cloud software
+          {% endif %}
+        </h1>
+        <!-- <a href="#" class="button">Search for services</a> -->
+      </div>
+  </div>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            
+            <ol class="task-list task-list--lowercase task-list--transparent task-list--start-page task-list--short-margin task-list--small-titles task-list--with-lines task-list--with-numbers task-list--no-indent task-list--with-badges task-list--blue-badges " style="margin-left: -35px">
+              <li {% if data.step == '1' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
+                <h2 class="task-list-section">
+                  <span class="task-list-section-number">1</span> Save a search
+                </h2>
+                <p class="task-list-description">Save your search terms so you can export your results later. You must <a href="#">buy fairly</a> and assess all the services that you find. Do not combine the results of more than one search.</p>
+                {% if data.step and data.step != '0' %}
+                <p class="search-summary task-list-description task-list-description--toolkit task-list-description--small">
+                  <span class="search-summary-count">6</span> results found in <em>Cloud software</em> in the category <em>Blogging</em>, deployable to a <em>public cloud</em>, where the supplier is <em>not a reseller</em>, where user support is available through <em>web chat</em>, where users can access the service through an <em>API</em>, where usage metrics are provided through <em>API access</em>, with staff security clearance that <em>conforms to BS7858:2012</em> and with a <em>free trial</em>
+                </p>
+                {% endif %}
+                <ul class="task-list-items task-list-items--single-task">
+                  <li class="task-list-item">
+                    {% if data.step == '1' %}
+                      <a class="task-name button" href="?step=2" style="margin-top: 10px">
+                        Edit your search and view results
+                      </a>
+                    {% endif %}
+                    {% if data.step == '2' %}
+                      <a class="task-name" href="?step=2" style="margin-top: 10px; margin-bottom: 10px;">
+                        Edit your search and view results
+                      </a>
+                    {% endif %}
+                    {% if data.step == '0' or not data.step %}
+                      <a class="task-name button" href="/choose-category">
+                        Start a new search
+                      </a><hr style="background: transparent;display:block;width:100%;margin:0;"></hr>
+                      <a class="task-name" href="?step=1" style="margin-top: 5px; pointer-events: none;">
+                        See a list of your saved searches
+                      </a>
+                    {% endif %}
+                  </li>
+                </ul>
+              </li>
+              <li {% if data.step == '2' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
+                <h2 class="task-list-section">
+                  <span class="task-list-section-number">2</span> Export your results
+                  
+                </h2>
+                <p class="task-list-description">Export a list of the services you’ve found. Download suppliers’ service descriptions and contact details to help you assess services. Keep a copy for your records.</p>
+                <ul class="task-list-items task-list-items--single-task">
+                  <li class="task-list-item">
+                    {% if data.step == '2' %}
+                    <a class="task-name button" href="/before-you-download">
+                      Export your results
+                    </a>
+                    {% endif %}
+                    {% if data.step =='1' %}
+                      <p class="browse-list-item-status-angry"><strong>You have too many services to assess. Refine your search until you have no more than 30 results.</strong></p>
+                    {% endif %}
+                    {% if data.step == '3' or data.step == '4' or data.step == '5' or data.step == '6' %}
+                    <a class="task-name" href="/download?flash=0" style="">
+                      Download your results again
+                    </a>
+                    {% endif %}
+                  </li>
+                </ul>
+              </li>
+              <li {% if data.step == '3' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
+                <h2 class="task-list-section">
+                  <span class="task-list-section-number">3</span> Start assessing services
+                  
+                </h2>
+                
+                <p class="task-list-description">Follow the <a href="#">guidance for assessing services</a>. Choose the one that best meets your budget and requirements. Do not hold a competition to decide the winner. You can <a href="#">contact suppliers to ask clarification questions</a>, but you must not negotiate with them.</p>
+                <ul class="task-list-items task-list-items--single-task">
+                  <li class="task-list-item">
+                    {% if data.step == '3' and data.noCurrentStep != '1' %}
+                    <a class="task-name button" href="/summary?step=4&review_flash=1">
+                      Confirm you have read and understood how to assess services
+                    </a>
+                    {% endif %}
+                  </li>
+                </ul>
+              </li>
+              <li {% if data.step == '4' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
+                <h2 class="task-list-section">
+                  <span class="task-list-section-number">4</span> Award a contract
+                  
+                </h2>
+                
+                <p class="task-list-description">Follow the guidance for <a href="#">awarding a contract</a>. Check if you need to <a href="#">publish the details on Contracts Finder</a>. After you award your contract, tell us the outcome. We collect this information to help us improve the Digital Marketplace.</p>
+                {% if data.step == '4' %}
+                <p class="search-summary task-list-description task-list-description--toolkit">
+                    No suitable services found.
+                </p>
+                {% endif %}
+                <ul class="task-list-items task-list-items--single-task">
+                  <li class="task-list-item">
+                    
+                  </li>
+                </ul>
+              </li>
+              <li {% if data.step == '5' and data.noCurrentStep != '1' %}class="current-step"{% endif %}>
+                <h2 class="task-list-section">
+                  <span class="task-list-section-number">5</span> Complete the Customer Benefits Record
+                </h2>
+                
+                <p class="task-list-description">You must fill in the <a href="#">Customer Benefits Record form</a> and email it to the Crown Commercial Service at <a href="#">gcloud-benefits@crowncommercial.gov.uk</a>. They will contact you if they find any issues with the supplier.</p>
+                
+                <ul class="task-list-items task-list-items--single-task">
+                  <li class="task-list-item">
+                  {% if data.step == '5' or data.step == '3' and data.noCurrentStep == '1' or data.step == '4' and data.noCurrentStep == '1' %}
+                    
+                  {% endif %}
+                  </li>
+                </ul>
+              </li>
+            </ol>
+        </div>
+        {% if data.step != '0' %}
+        <div class="column-one-third dmspeak">
+          <ul style="padding-top:10px;border-top: 4px solid #005ea5;margin-top:30px">
+            <li style="margin-bottom: -10px;">
+              <p>
+                <a href="{% if data.step == '3' %}/archive-2/why{% elseif data.step == '4' %}/archive-2/are-you-sure{% endif %}">Archive this search</a> {% if data.step == '3' %} if you did not award a contract for it.{% endif %}
+              </p>
+              <!--<p> 
+                <strong style="font-weight:bold">You archived this search on Monday 4 June 2018 at 12:01pm BST</strong>
+              </p> -->
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+    </div>
+</main>
+
+{% endblock %}

@@ -22,5 +22,8 @@ router.post('/why-not', function (req, res) {
 router.post('/award-details', function (req, res) {
   res.redirect('/summary?step=5&awarded_flash=1&not_awarded=0')
 })
+router.post('/archive-2/why', function (req, res) {
+  res.redirect('/archive-2/saved-searches?flash=1')
+})
 
 module.exports = router

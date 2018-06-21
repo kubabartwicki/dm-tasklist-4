@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Your saved searches – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        <li><a href="/">Your account</a></li>
+    </ol>
+  </nav>
+</div>
+
+<main id="content" role="main">
+
+    <div class="grid-row">
+        {% if data.flash == 1 %}
+        <div class="column-full">
+          <div class="banner-success-without-action">
+              <p class="banner-message">
+                Your search has been archived.
+              </p>
+          </div>  
+        </div>
+        {% endif %}
+        <div class="column-two-thirds">
+          <h1 class="heading-xlarge" style="margin-top: 20px;margin-bottom: 40px">
+            Your saved searches
+          </h1>
+        </div>
+    </div>
+    <div class="grid">
+
+
+
+
+        <!-- <h2 class="summary-item-heading" id="search_ended_table">
+
+          Search ended
+      </h2> -->
+
+
+        <table class="summary-item-body">
+        <caption class="visually-hidden">
+          Summary table
+        </caption>
+        <thead class="summary-item-field-headings-visible">
+          <tr>
+
+              <th scope="col" class="summary-item-field-heading-first">
+
+                  Name
+
+              </th>
+
+              
+
+              <th scope="col" class="summary-item-field-heading">
+
+                  Status
+
+              </th>
+
+              <th scope="col" class="summary-item-field-heading">
+
+                  Last updated
+
+              </th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+
+
+          <tr class="summary-item-row">
+
+
+      <td class="summary-item-field-first-half">
+
+          <span><a href="/search-summary"style="pointer-events:none">Buying some hosting</a></span>
+
+      </td>
+
+      
+
+      <td class="summary-item-field">
+
+          <span>Terms saved</span>
+
+      </td>
+      <td class="summary-item-field">
+
+          <span>Monday 16 April 2018 at 10:01am BST</span>
+
+      </td>
+
+      </tr>
+
+            <tr class="summary-item-row">
+
+
+        <td class="summary-item-field-first-half">
+
+            <span><a href="/search-summary" style="pointer-events:none">Bought some Drupal support</a></span>
+
+        </td>
+
+        
+
+        <td class="summary-item-field">
+
+            <span>Results downloaded</span>
+
+        </td>
+        <td class="summary-item-field">
+
+            <span>Wednesday 7 April 2018 at 12:35pm BST</span>
+
+        </td>
+
+        </tr>
+        <tr class="summary-item-row">
+
+
+        <td class="summary-item-field-first-half">
+
+            <span><a href="/search-summary" style="pointer-events:none">Tried to buy cloud services</a></span>
+
+        </td>
+
+        
+
+        <td class="summary-item-field">
+
+            <span>Results reviewed</span>
+
+        </td>
+        <td class="summary-item-field">
+
+            <span>Thursday 2 November 2017 at 9:00am BST</span>
+
+        </td>
+
+        </tr>
+
+        <tr class="summary-item-row">
+
+
+          <td class="summary-item-field-first-half">
+
+            <span><a href="/search-summary" style="pointer-events:none">Another attempt to buy cloud services</a></span>
+
+          </td>
+
+          
+
+          <td class="summary-item-field">
+
+            <span>No suitable services</span>
+
+          </td>
+          <td class="summary-item-field">
+
+            <span>Friday 8 January 2017 at 11:00am BST</span>
+
+          </td>
+
+      </tr>
+
+        </tbody>
+      </table>
+      <a href="/search" class="button" style="margin-top:40px;pointer-events: none;">Start a new search</a>
+      <p style="margin-top: 20px"><a href="/archive-2/archived-searches">View your archived searches</a></p>
+      </div>
+</main>
+
+{% endblock %}

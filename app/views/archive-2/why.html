@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% set logged_in = true %}
+{% set action = "/archive-2/saved-searches?flash=1" %}
+{% block page_title %}
+  Archive your search – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" media="screen" href="/public/stylesheets/dm-styles.css" />
+<style>
+ a, button, input[type="submit"] {
+ 	pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        <li><a href="/">Your account</a></li>
+        <li><a href="/">Your saved searches</a></li>
+        <li><a class="" href="{{ previousStep }}">Buying some cloud software</a></li>
+    </ol>
+  </nav>
+</div>
+
+<div id="wrapper">
+   <main id="content" role="main">
+         
+     
+
+         
+
+   <div class="single-question-page save-search-page">
+     <div class="grid-row">
+       <div class="column-one-whole">
+           
+       </div>
+     </div>
+     <div class="grid-row">
+       <div class="column-two-thirds">
+         <header class="page-heading page-heading-without-breadcrumb">
+           <h1>
+             Why do you want to archive this search?
+           </h1>
+         </header>
+       </div>
+     </div>
+     <form method="post" action="{{ action }}">
+       <div class="grid-row">
+         <div class="column-two-thirds">
+          
+              <div class="form-group">
+                <fieldset>
+                  <div class="multiple-choice">
+                    <input id="radio-1" type="radio" name="radiogroup2" value="The work has been cancelled">
+                    <label for="radio-1">
+                      The work has been cancelled
+                      <span class="form-hint">For example, because you no longer have the budget</span>
+                    </label>
+                  </div>
+                  <div class="multiple-choice">
+                    <input id="radio-2" type="radio" name="radiogroup2" value="No suitable services found">
+                    <label for="radio-2">
+                      There were no suitable services
+                      <span class="form-hint">The services in your search results did not meet your requirements</span>
+                    </label>
+                  </div>
+                  <div class="multiple-choice">
+                    <input id="radio-3" type="radio" name="radiogroup2" value="Used another route to market">
+                    <label for="radio-3">
+                      You found another way to buy cloud services
+                      <span class="form-hint">For example, publishing an opportunity for an outcome or specialist</span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+              <p style="margin-bottom: 40px">This action can not be undone. You should only archive a search if you did not award a contract for it.</p>
+              <input type="submit" class="button button-save can-click" value="Archive this search">
+           <p class="return-to-overview">
+             <a href="{{ previousStep }}" class="">Return to task list</a>
+           </p>
+         </div>
+       </div>
+     </form>
+   </div>
+
+       </main>
+  </div>
+<div class="report-a-problem-container">
+  <div class="report-a-problem-inner">
+    <div class="report-a-problem-content">
+      <h2>Help us improve the Digital Marketplace</h2>
+      <form autocomplete="off" action="/feedback" method="post">
+        <input type="hidden" name="csrf_token" value="IjQzN2Y4OGZmMGI2NjJkZjg3Yzk1MTQ0MzlmZDkzMzQ4Y2JkNDdmYjIi.Dc20Pg.1_oZpT2bmlYU52mWvefuSbKPelQ">
+        <input id="uri" name="uri" type="hidden" value="https://www.digitalmarketplace.service.gov.uk/g-cloud/search?q=">
+
+        <p>Please do not include personal details or sensitive information about your organisation or department.</p>
+
+        <label for="what_doing">What were you doing?</label>
+        <input autocomplete="off" id="what_doing" name="what_doing" type="text">
+
+        <label for="what_happened">What happened?</label>
+        <input autocomplete="off" id="what_happened" name="what_happened" type="text">
+
+        <div class="button-wrapper">
+          <button name="commit" type="submit" class="button">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

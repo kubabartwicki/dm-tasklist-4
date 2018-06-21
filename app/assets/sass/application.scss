@@ -268,6 +268,9 @@ margin-top: 15px;
 border-width: 5px;
 border-style: solid;
 }
+.button-destructive:visited {
+      background-color: #b10e1e;
+}
 .banner-success-with-action, .banner-success-without-action {
 color: #00823b;
 }
@@ -1061,4 +1064,51 @@ padding-right: 12px;
       max-width: 15%;
     }
   }
+}
+
+
+.banner-destructive-without-action, .banner-destructive-with-action {
+color: #b10e1e;
+}
+.button-destructive, .button-destructive-with-advice {
+background-color: #b10e1e;
+position: relative;
+display: -moz-inline-stack;
+display: inline-block;
+padding: .526315em .789473em .263157em;
+border: none;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+-webkit-appearance: none;
+-webkit-box-shadow: 0 2px 0 #6a0812;
+-moz-box-shadow: 0 2px 0 #6a0812;
+box-shadow: 0 2px 0 #6a0812;
+font-size: 1em;
+line-height: 1.25;
+text-decoration: none;
+-webkit-font-smoothing: antialiased;
+cursor: pointer;
+color: #fff;
+}
+.button-destructive:hover, .button-destructive:focus, .button-destructive-with-advice:hover, .button-destructive-with-advice:focus {
+background-color: #990c1a;
+}
+.banner-action {
+margin-top: 10px;
+margin-bottom: 5px;
+}
+.banner-destructive-without-action .banner-content, .banner-destructive-with-action .banner-content, .banner-warning-with-action .banner-content, .banner-warning-without-action .banner-content, .banner-success-with-action .banner-content, .banner-success-without-action .banner-content, .banner-information-with-action .banner-content, .banner-information-without-action .banner-content, .banner-temporary-message-without-action .banner-content {
+    font-family: "nta",Arial,sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #0b0c0c;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.banner-destructive-without-action .banner-content, .banner-destructive-with-action .banner-content, .banner-warning-with-action .banner-content, .banner-warning-without-action .banner-content, .banner-success-with-action .banner-content, .banner-success-without-action .banner-content, .banner-information-with-action .banner-content, .banner-information-without-action .banner-content, .banner-temporary-message-without-action .banner-content {
+    font-size: 19px;
+    line-height: 1.31579;
 }
