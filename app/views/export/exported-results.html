@@ -1,0 +1,267 @@
+{% extends "layout.html" %}
+{% set logged_in = true %}
+{% set action = '/export?step=4' %}
+{% set previousStep = '/export?step=3' %}
+
+
+{% block page_title %}
+  Your exported results – Digital Marketplace
+{% endblock %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" media="screen" href="/public/stylesheets/dm-styles.css" />
+<style>
+ a, button, input[type="submit"] {
+ 	pointer-events: none !important;
+ }
+</style>
+
+<div id="global-breadcrumb" class="header-context">
+  <nav>
+    <ol class="group" role="breadcrumbs">
+        <li><a href="/">Digital Marketplace</a></li>
+        <li><a href="/">Your account</a></li>
+        <li><a href="/">Your saved searches</a></li>
+        <li><a class="can-click" href="{{ previousStep }}">Buying some cloud software</a></li>
+        <li>Your exported results</li>
+    </ol>
+  </nav>
+</div>
+
+<div id="wrapper">
+   <main id="content" role="main">
+         
+     
+
+         
+    <div class="single-question-page save-search-page">
+      <div class="grid-row">
+        <div class="column-one-whole">
+            
+        </div>
+      </div>
+      <div class="grid-row">
+        {% if data.flash == 1 %}
+        <div class="column-full">
+          <div class="banner-success-without-action">
+              <p class="banner-message">
+                Results exported. Your files are ready to download.
+              </p>
+          </div>
+        </div>
+        {% endif %}
+        <div class="column-two-thirds">
+          <header class="page-heading page-heading-without-breadcrumb">
+            <h1>
+              Your exported results
+            </h1>
+          </header>
+        </div>
+      </div>
+      <form method="post" action="{{ previousStep }}">
+        <div class="grid-row">
+          <div class="column-two-thirds">
+           <p>Below a list of the services you've found and that you will need to assess.</p>
+           <p style="margin-top:10px">Use the table below to learn more about them or download a spreadsheet of all the data for your records.</p>
+           
+         </div>
+           <div class="column-full">
+
+            <table class="summary-item-body archived-searches" style="margin-top:140px">
+              <caption class="visually-hidden">
+               Summary table
+              </caption>
+              <thead class="summary-item-field-headings-visible">
+               <tr>
+                <th scope="col" class="summary-item-field-heading-first">
+                  Service name
+                </th>
+                <th scope="col" class="summary-item-field-heading">
+                  Supplier name
+                </th>
+                <th scope="col" class="summary-item-field-heading">
+                  Contact details
+                </th>
+               </tr>
+              </thead>
+              <tbody>
+              {% for i in range(0, 3) -%}
+                <tr class="summary-item-row" style="border-top: none">
+                  <td class="summary-item-field-first-half">
+                    <span><a href="#">Cloud Contact Centre</a></span>
+                  </td>
+                  <td class="summary-item-field">
+                    <span>Ideal Networks Ltd</span>
+                  </td>
+                  <td class="summary-item-field">
+                    <span itemprop="name" style="display:block">
+                      Mike Henson
+                    </span>
+                    <span itemprop="name" style="display:block">
+                      01273 957500
+                    </span>
+                    <span itemprop="email" style="display:block">
+                      <a href="mailto:bids@ideal.co.uk" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">bids@ideal.co.uk</a>
+                    </span>
+                  </td>
+                </tr>
+              {%- endfor %}
+              </tbody>
+            </table>
+
+
+            <table class="summary-item-body archived-searches" style="margin-top:140px;margin-bottom:140px">
+              <caption class="visually-hidden">
+               Summary table
+              </caption>
+              <thead class="summary-item-field-headings-visible">
+               <tr>
+                <th scope="col" class="summary-item-field-heading-first">
+                  Service name
+                </th>
+                <th scope="col" class="summary-item-field-heading">
+                  Contact details
+                </th>
+               </tr>
+              </thead>
+              <tbody>
+                <style>
+                .supplier-name {
+                  display: block;
+                  color: #6f777b;
+                }
+                </style>
+              {% for i in range(0, 3) -%}
+                <tr class="summary-item-row" style="border-top: none">
+                  <td class="summary-item-field-first-half">
+                    <span><a href="#">Cloud Contact Centre</a></span>
+                    <span class="supplier-name">Ideal Networks Ltd</span>
+                  </td>
+                  <td class="summary-item-field">
+                    <span itemprop="name" style="display:block">
+                      Mike Henson
+                    </span>
+                    <span itemprop="name" style="display:block">
+                      01273 957500
+                    </span>
+                    <span itemprop="email" style="display:block">
+                      <a href="mailto:bids@ideal.co.uk" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">bids@ideal.co.uk</a>
+                    </span>
+                  </td>
+                </tr>
+              {%- endfor %}
+              </tbody>
+            </table>
+
+
+            <table class="summary-item-body archived-searches" style="margin-top:140px;margin-bottom:140px">
+              <caption class="visually-hidden">
+               Summary table
+              </caption>
+              <thead class="summary-item-field-headings-visible">
+               <tr>
+                <th scope="col" class="summary-item-field-heading-first">
+                  Service name
+                </th>
+                <th scope="col" class="summary-item-field-heading">
+                  Contact details
+                </th>
+                <th scope="col" class="summary-item-field-heading">
+                </th>
+               </tr>
+              </thead>
+              <tbody>
+              {% for i in range(0, 3) -%}
+                <tr class="summary-item-row" style="border-top: none">
+                  <td class="summary-item-field-first-half">
+                    <span>Cloud Contact Centre</span>
+                    <span class="supplier-name">Ideal Networks Ltd</span>
+                  </td>
+                  <td class="summary-item-field">
+                    <span itemprop="name" style="display:block">
+                      Mike Henson
+                    </span>
+                    <span itemprop="name" style="display:block">
+                      01273 957500
+                    </span>
+                    <span itemprop="email" style="display:block">
+                      <a href="mailto:bids@ideal.co.uk" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">bids@ideal.co.uk</a>
+                    </span>
+                  </td>
+                  <td class="summary-item-field-with-action">  
+                    <span><a href="/archive-2/search" class="button-secondary">View details</a></span>
+                  </td>
+                </tr>
+              {%- endfor %}
+              </tbody>
+            </table>
+
+
+</div>
+                 <div class="column-two-thirds">
+
+
+           <ul class="document-list" style="margin-top:20px;margin-bottom:-20px">
+             <li class="document-list-item">
+                 <a href="/public/csv.csv" data-analytics="trackEvent" data-analytics-category="Direct Award" data-analytics-action="Download search results format" data-analytics-label="CSV" class="document-link-with-icon can-click">
+                   <span class="document-icon">CSV<span> document:</span></span>
+                   Download search results as comma-separated values
+                 </a>
+               </li>
+               <li class="document-list-item">
+                 <a href="/public/ods.ods" data-analytics="trackEvent" data-analytics-category="Direct Award" data-analytics-action="Download search results format" data-analytics-label="ODS" class="document-link-with-icon can-click">
+                   <span class="document-icon">ODS<span> document:</span></span>
+                   Download search results as a spreadsheet
+                 </a>
+               </li>
+             
+               
+             
+           </ul>
+
+           <p class="" style="    border-left: 5px solid #BFC1C3;
+    color: inherit;
+    padding-bottom: 2px;
+    font-weight: normal;
+    margin-left: 0;
+    padding-left: 15px;
+    margin-bottom: 30px;margin-top:15px;
+    line-height: 1.25;padding-top:4px;">
+                    Results exported on Monday 4 June 2018 at 12:01pm BST
+                </p>
+
+            <p class="return-to-overview" style>
+              <a href="{{ previousStep }}" class="can-click ">Return to your task list</a>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+
+       </main>
+  </div>
+<div class="report-a-problem-container">
+  <div class="report-a-problem-inner">
+    <div class="report-a-problem-content">
+      <h2>Help us improve the Digital Marketplace</h2>
+      <form autocomplete="off" action="/feedback" method="post">
+        <input type="hidden" name="csrf_token" value="IjQzN2Y4OGZmMGI2NjJkZjg3Yzk1MTQ0MzlmZDkzMzQ4Y2JkNDdmYjIi.Dc20Pg.1_oZpT2bmlYU52mWvefuSbKPelQ">
+        <input id="uri" name="uri" type="hidden" value="https://www.digitalmarketplace.service.gov.uk/g-cloud/search?q=">
+
+        <p>Please do not include personal details or sensitive information about your organisation or department.</p>
+
+        <label for="what_doing">What were you doing?</label>
+        <input autocomplete="off" id="what_doing" name="what_doing" type="text">
+
+        <label for="what_happened">What happened?</label>
+        <input autocomplete="off" id="what_happened" name="what_happened" type="text">
+
+        <div class="button-wrapper">
+          <button name="commit" type="submit" class="button">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
