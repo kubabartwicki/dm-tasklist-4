@@ -1,3 +1,57 @@
+{% set items = [
+    { 
+      service: 'Cloud Contact Centre',
+      supplier: 'Ideal Networks Ltd',
+      name: 'Mike Henson',
+      phone: '01273 957500',
+      email: 'bids@ideal.co.uk'
+    },
+    { 
+      service: 'Digital Workplace',
+      supplier: 'Invotra',
+      name: 'Jamie Garrett',
+      phone: '07824168080',
+      email: 'sales@invotra.com'
+    },
+    { 
+      service: 'Liferay Portal Development Hosting and Support',
+      supplier: 'Kiktronik Limited',
+      name: 'Armel Nene',
+      phone: '02032901124',
+      email: 'armel.nene@kiktronik.com'
+    },
+    { 
+      service: 'Collaboration',
+      supplier: 'Invotra',
+      name: 'Jamie Garrett',
+      phone: '07824168080',
+      email: 'sales@invotra.com'
+    },
+    { 
+      service: 'Extranet',
+      supplier: 'Invotra',
+      name: 'Jamie Garrett',
+      phone: '07824168080',
+      email: 'sales@invotra.com'
+    },
+    { 
+      service: 'Enterprise Social Network',
+      supplier: 'Invotra',
+      name: 'Jamie Garrett',
+      phone: '07824168080',
+      email: 'sales@invotra.com'
+    },
+    { 
+      service: 'Blogging',
+      supplier: 'Invotra',
+      name: 'Jamie Garrett',
+      phone: '07824168080',
+      email: 'sales@invotra.com'
+    }]
+%}
+
+
+
 {% extends "layout.html" %}
 {% set logged_in = true %}
 {% set action = '/export?step=4' %}
@@ -45,7 +99,7 @@
         <div class="column-full">
           <div class="banner-success-without-action">
               <p class="banner-message">
-                Results exported. Your files are ready to download.
+                Results exported.
               </p>
           </div>
         </div>
@@ -64,7 +118,25 @@
            <p>Below a list of the services you've found and that you will need to assess.</p>
            <p style="margin-top:10px">Use the table below to learn more about them or download a spreadsheet of all the data for your records.</p>
 
-            <table class="summary-item-body archived-searches" style="margin-top:40px;margin-bottom:20px">
+           <style>
+           .summary-item-field-headings-visible td, .summary-item-field-headings-visible th, .summary-item-field, .summary-item-field-first-half {
+               font-size: 19px;
+               line-height: 1.25;
+               width: 33.3%;
+           }
+         </style>
+           <p class="" style="    border-left: 5px solid #BFC1C3;
+    color: inherit;
+    padding-bottom: 2px;
+    font-weight: normal;
+    margin-left: 0;
+    padding-left: 15px;
+    margin-bottom: 20px;margin-top:20px;
+    line-height: 1.25;padding-top:4px;font-size:16px">
+                             <span class="search-summary-count" style="font-weight:bold">6</span> results found in <em style="font-style:normal;font-weight:bold;">Cloud software</em> in the category <em style="font-style:normal;font-weight:bold;">Blogging</em>, deployable to a <em style="font-style:normal;font-weight:bold;">public cloud</em>, where the supplier is <em style="font-style:normal;font-weight:bold;">not a reseller</em>, where user support is available through <em style="font-style:normal;font-weight:bold;">web chat</em>, where users can access the service through an <em style="font-style:normal;font-weight:bold;">API</em>, where usage metrics are provided through <em style="font-style:normal;font-weight:bold;">API access</em>, with staff security clearance that <em style="font-style:normal;font-weight:bold;">conforms to BS7858:2012</em> and with a <em style="font-style:normal;font-weight:bold;">free trial</em>
+                           </p>
+
+            <table class="summary-item-body archived-searches" style="margin-top:30px;margin-bottom:0px">
               <caption class="visually-hidden">
                Summary table
               </caption>
@@ -79,30 +151,32 @@
                </tr>
               </thead>
               <tbody>
-                <style>
-                .supplier-name {
-                  display: block;
-                  color: #6f777b;
-                }
-                </style>
-              {% for i in range(0, 3) -%}
+
+              {% for item in items %}
                 <tr class="summary-item-row" style="border-top: none">
                   <td class="summary-item-field-first-half">
-                    <span><a href="#">Cloud Contact Centre</a></span>
-                    <span class="" style="display:block">Ideal Networks Ltd</span>
+                    <span><a href="#">{{ item.service }}</a></span>
+                    <span class="" style="display:block">{{ item.supplier }}</span>
                   </td>
                   <td class="summary-item-field">
                     <span itemprop="name" style="display:block">
-                      Mike Henson
+                      {{ item.name }}
                     </span>
                     <span itemprop="name" style="display:block">
-                      01273 957500
+                      {{ item.phone }}
                     </span>
                     <span itemprop="email" style="display:block">
-                      <a href="mailto:bids@ideal.co.uk" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">bids@ideal.co.uk</a>
+                      <a href="mailto:{{ item.service }}" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">{{ item.email }}</a>
                     </span>
                   </td>
                 </tr>
+              {%- endfor %}
+
+
+
+
+              {% for i in range(0, 5) -%}
+                
               {%- endfor %}
               </tbody>
             </table>
@@ -114,24 +188,7 @@
 </div>
                  <div class="column-two-thirds">
 
-
-           <ul class="document-list" style="margin-top:20px;margin-bottom:-20px">
-             <li class="document-list-item">
-                 <a href="/public/csv.csv" data-analytics="trackEvent" data-analytics-category="Direct Award" data-analytics-action="Download search results format" data-analytics-label="CSV" class="document-link-with-icon can-click">
-                   <span class="document-icon">CSV<span> document:</span></span>
-                   Download search results as comma-separated values
-                 </a>
-               </li>
-               <li class="document-list-item">
-                 <a href="/public/ods.ods" data-analytics="trackEvent" data-analytics-category="Direct Award" data-analytics-action="Download search results format" data-analytics-label="ODS" class="document-link-with-icon can-click">
-                   <span class="document-icon">ODS<span> document:</span></span>
-                   Download search results as a spreadsheet
-                 </a>
-               </li>
-             
-               
-             
-           </ul>
+                  <p style="margin-top:30px">You can also download your results as <a href="#">comma-separated values</a> or as a <a href="#">spreadsheet</a>.
 
            <p class="" style="    border-left: 5px solid #BFC1C3;
     color: inherit;
@@ -145,7 +202,7 @@
                 </p>
 
             <p class="return-to-overview" style>
-              <a href="{{ previousStep }}" class="can-click ">Return to your task list</a>
+              <a href="{{ previousStep }}" class="can-click button button-save">Continue to your task list</a>
             </p>
           </div>
         </div>
