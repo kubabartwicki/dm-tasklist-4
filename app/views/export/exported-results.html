@@ -63,54 +63,8 @@
           <div class="column-two-thirds">
            <p>Below a list of the services you've found and that you will need to assess.</p>
            <p style="margin-top:10px">Use the table below to learn more about them or download a spreadsheet of all the data for your records.</p>
-           
-         </div>
-           <div class="column-full">
 
-            <table class="summary-item-body archived-searches" style="margin-top:140px">
-              <caption class="visually-hidden">
-               Summary table
-              </caption>
-              <thead class="summary-item-field-headings-visible">
-               <tr>
-                <th scope="col" class="summary-item-field-heading-first">
-                  Service name
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                  Supplier name
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                  Contact details
-                </th>
-               </tr>
-              </thead>
-              <tbody>
-              {% for i in range(0, 3) -%}
-                <tr class="summary-item-row" style="border-top: none">
-                  <td class="summary-item-field-first-half">
-                    <span><a href="#">Cloud Contact Centre</a></span>
-                  </td>
-                  <td class="summary-item-field">
-                    <span>Ideal Networks Ltd</span>
-                  </td>
-                  <td class="summary-item-field">
-                    <span itemprop="name" style="display:block">
-                      Mike Henson
-                    </span>
-                    <span itemprop="name" style="display:block">
-                      01273 957500
-                    </span>
-                    <span itemprop="email" style="display:block">
-                      <a href="mailto:bids@ideal.co.uk" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">bids@ideal.co.uk</a>
-                    </span>
-                  </td>
-                </tr>
-              {%- endfor %}
-              </tbody>
-            </table>
-
-
-            <table class="summary-item-body archived-searches" style="margin-top:140px;margin-bottom:140px">
+            <table class="summary-item-body archived-searches" style="margin-top:40px;margin-bottom:20px">
               <caption class="visually-hidden">
                Summary table
               </caption>
@@ -135,7 +89,7 @@
                 <tr class="summary-item-row" style="border-top: none">
                   <td class="summary-item-field-first-half">
                     <span><a href="#">Cloud Contact Centre</a></span>
-                    <span class="supplier-name">Ideal Networks Ltd</span>
+                    <span class="" style="display:block">Ideal Networks Ltd</span>
                   </td>
                   <td class="summary-item-field">
                     <span itemprop="name" style="display:block">
@@ -154,158 +108,7 @@
             </table>
 
 
-            <table class="summary-item-body archived-searches" style="margin-top:140px;margin-bottom:140px">
-              <caption class="visually-hidden">
-               Summary table
-              </caption>
-              <thead class="summary-item-field-headings-visible">
-               <tr>
-                <th scope="col" class="summary-item-field-heading-first">
-                  Service name
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                  Contact details
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                </th>
-               </tr>
-              </thead>
-              <tbody>
-              {% for i in range(0, 3) -%}
-                <tr class="summary-item-row" style="border-top: none">
-                  <td class="summary-item-field-first-half">
-                    <span>Cloud Contact Centre</span>
-                    <span class="supplier-name">Ideal Networks Ltd</span>
-                  </td>
-                  <td class="summary-item-field">
-                    <span itemprop="name" style="display:block">
-                      Mike Henson
-                    </span>
-                    <span itemprop="name" style="display:block">
-                      01273 957500
-                    </span>
-                    <span itemprop="email" style="display:block">
-                      <a href="mailto:bids@ideal.co.uk" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">bids@ideal.co.uk</a>
-                    </span>
-                  </td>
-                  <td class="summary-item-field-with-action">  
-                    <span><a href="/archive-2/search" class="button-secondary">View details</a></span>
-                  </td>
-                </tr>
-              {%- endfor %}
-              </tbody>
-            </table>
 
-            <table class="summary-item-body archived-searches" style="margin-top:140px;margin-bottom:140px">
-              <caption class="visually-hidden">
-               Summary table
-              </caption>
-              <thead class="summary-item-field-headings-visible">
-               <tr>
-                <th scope="col" class="summary-item-field-heading-first">
-                  Service name
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                  Contact details
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                </th>
-               </tr>
-              </thead>
-              <tbody>
-              {% for i in range(0, 3) -%}
-                <tr class="summary-item-row" style="border-top: none">
-                  <td class="summary-item-field-first-half">
-                    <span>Cloud Contact Centre</span>
-                    <span class="supplier-name">Ideal Networks Ltd</span>
-                  </td>
-                  <td class="summary-item-field">
-                    <span itemprop="name" >
-                      Mike Henson, 
-                    </span>
-                    <span itemprop="name">
-                      01273 957500, 
-                    </span>
-                    <span itemprop="email" >
-                      <a href="mailto:bids@ideal.co.uk" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">bids@ideal.co.uk</a>
-                    </span>
-                  </td>
-                  <td class="summary-item-field-with-action">  
-                    <span><a href="/archive-2/search" class="button-secondary">View details</a></span>
-                  </td>
-                </tr>
-              {%- endfor %}
-              </tbody>
-            </table>
-            <style>
-            .export-a td:nth-child(2),
-            .export-a td:nth-child(3),
-            .export-a td:nth-child(4),
-            .export-a th:nth-child(2),
-            .export-a th:nth-child(3),
-            .export-a th:nth-child(4) {
-              width: 15%;
-            }
-            .export-a td:nth-child(1),
-            .export-a th:nth-child(1) {
-              width: 30%;
-            }
-            .export-a td:nth-child(5),
-            .export-a th:nth-child(5) {
-              /*min-width: 20%;*/
-            }
-            </style>
-            <table class="summary-item-body export-a" style="margin-top:140px;margin-bottom:140px">
-              <caption class="visually-hidden">
-               Summary table
-              </caption>
-              <thead class="summary-item-field-headings-visible">
-               <tr>
-                <th scope="col" class="summary-item-field-heading-first">
-                  Service name
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                  Contact name
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                  Telephone
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                  Email
-                </th>
-                <th scope="col" class="summary-item-field-heading">
-                </th>
-               </tr>
-              </thead>
-              <tbody>
-              {% for i in range(0, 3) -%}
-                <tr class="summary-item-row" style="border-top: none">
-                  <td class="summary-item-field-first-half">
-                    <span>Cloud Contact Centre</span>
-                    <span class="supplier-name">Ideal Networks Ltd</span>
-                  </td>
-                  <td class="summary-item-field">
-                    <span itemprop="name" >
-                      Mike Henson
-                    </span>
-                  </td>
-                  <td class="summary-item-field">
-                    <span itemprop="name">
-                      01273 957500
-                    </span>
-                  </td>
-                  <td class="summary-item-field">
-                    <span itemprop="email" >
-                      <a href="mailto:bids@ideal.co.uk" data-event-category="Email a supplier" data-event-label="Ideal Networks Ltd">bids@ideal.co.uk</a>
-                    </span>
-                  </td>
-                  <td class="summary-item-field-with-action">  
-                    <span><a href="/archive-2/search" class="button-secondary">View details</a></span>
-                  </td>
-                </tr>
-              {%- endfor %}
-              </tbody>
-            </table>
 
 
 </div>
