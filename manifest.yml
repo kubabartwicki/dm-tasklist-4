@@ -1,0 +1,5 @@
+---
+applications:
+- name: digitalmarketplace-capture-spend-data-task-list
+  memory: 256M
+  buildpack: nodejs_buildpack
