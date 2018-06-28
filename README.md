@@ -1,13 +1,4 @@
-# Digital Marketplace Capture Spend Data Task List Prototype
-
-This has a `manifest.yml` file ready to be [deployed to the PaaS](https://alphagov.github.io/digitalmarketplace-manual/paas.html?highlight=paas). If it is going onto the Digital Marketplace org then use the `labs` space. Remember to set the basic auth `USERNAME` and `PASSWORD` envars on the app.
-
-Once deployed it will be available at:
-
-http://digitalmarketplace-capture-spend-data-task-list.cloudapps.digital
-
-
-## GOV.UK Prototype kit · [![Greenkeeper badge](https://badges.greenkeeper.io/alphagov/govuk_prototype_kit.svg)](https://greenkeeper.io/)
+# GOV.UK Prototype kit · [![Greenkeeper badge](https://badges.greenkeeper.io/alphagov/govuk_prototype_kit.svg)](https://greenkeeper.io/)
 
 Go to the [GOV.UK Prototype Kit site](https://govuk-prototype-kit.herokuapp.com/docs) to download the latest version and read the documentation.
 
